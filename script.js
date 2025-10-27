@@ -521,6 +521,8 @@ function openDonorModal(currency) {
     document.getElementById('modalTitle').textContent = 'إضافة متبرع جديد';
 }
 
+window.openDonorModal = openDonorModal;
+
 window.editDonor = function(id, currency, name, amount) {
     document.getElementById('donorModal').classList.add('active');
     document.getElementById('donorId').value = id;
@@ -577,6 +579,8 @@ function openPaymentMethodModal() {
     document.getElementById('paymentContact').value = '';
     document.getElementById('paymentModalTitle').textContent = 'إضافة وسيلة دفع';
 }
+
+window.openPaymentMethodModal = openPaymentMethodModal;
 
 window.editPaymentMethod = function(id, data) {
     document.getElementById('paymentModal').classList.add('active');
