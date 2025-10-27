@@ -75,7 +75,12 @@ function normalizeContactText(text) {
 }
 
 // ===== Public Page Functions =====
-if (window.location.pathname.includes('index.html') || window.location.pathname.endsWith('/takatuf/')) {
+if (window.location.pathname.includes('index.html') || 
+    window.location.pathname.endsWith('/takatuf/') || 
+    window.location.pathname.endsWith('/') ||
+    window.location.pathname === '/takatuf' ||
+    document.getElementById('totalUSD')) {
+    console.log('Loading public page data...');
     loadPublicPageData();
     setupPaymentTabs();
 }
@@ -352,23 +357,30 @@ window.closeDonorsModal = function() {
 
 // ===== Admin Page Functions =====
 if (window.location.pathname.includes('admin.html')) {
+    console.log('Admin page detected');
+    
+    // Setup handlers immediately
+    setupAdminHandlers();
+    
     document.getElementById('loginForm')?.addEventListener('submit', (e) => {
         e.preventDefault();
+        console.log('Login submitted, loading data...');
         setTimeout(() => {
             loadAdminPageData();
-            setupAdminHandlers();
         }, 100);
     });
     
+    // If already logged in, load data immediately
     if (sessionStorage.getItem('adminLoggedIn') === 'true') {
-        loadAdminPageData();
-        setupAdminHandlers();
+        console.log('Already logged in, loading data...');
+        setTimeout(() => {
+            loadAdminPageData();
+        }, 500);
     }
-
-    setupAdminHandlers();
 }
 
 async function loadAdminPageData() {
+    console.log('loadAdminPageData called');
     try {
         // Load USD donors
         const { data: usdDonors, error: usdError } = await supabase
@@ -376,6 +388,7 @@ async function loadAdminPageData() {
             .select('*')
             .order('timestamp', { ascending: false });
         
+        console.log('USD donors loaded:', usdDonors);
         if (!usdError) displayDonorsTable('usd', usdDonors);
         
         // Load TRY donors
@@ -384,6 +397,7 @@ async function loadAdminPageData() {
             .select('*')
             .order('timestamp', { ascending: false });
         
+        console.log('TRY donors loaded:', tryDonors);
         if (!tryError) displayDonorsTable('try', tryDonors);
         
         // Load payment methods
@@ -394,9 +408,38 @@ async function loadAdminPageData() {
         
         if (!methodsError) displayPaymentMethodsList(methods);
         
+        // Subscribe to real-time changes for admin
+        subscribeToAdminChanges();
+        
     } catch (error) {
         console.error('Error loading admin data:', error);
     }
+}
+
+function subscribeToAdminChanges() {
+    // Subscribe to USD donors changes
+    supabase
+        .channel('admin_donors_usd')
+        .on('postgres_changes', 
+            { event: '*', schema: 'public', table: 'donors_usd' },
+            () => {
+                console.log('USD donors changed, reloading...');
+                loadAdminPageData();
+            }
+        )
+        .subscribe();
+    
+    // Subscribe to TRY donors changes
+    supabase
+        .channel('admin_donors_try')
+        .on('postgres_changes',
+            { event: '*', schema: 'public', table: 'donors_try' },
+            () => {
+                console.log('TRY donors changed, reloading...');
+                loadAdminPageData();
+            }
+        )
+        .subscribe();
 }
 
 function displayDonorsTable(currency, donors) {
