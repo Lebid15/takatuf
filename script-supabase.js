@@ -389,6 +389,9 @@ window.closeDonorsModal = function() {
 if (window.location.pathname.includes('admin.html')) {
     console.log('Admin page detected');
     
+    // Admin password
+    const ADMIN_PASSWORD = "takatuf2025";
+    
     // Initialize admin page
     const initAdminPage = () => {
         console.log('Initializing admin page...');
@@ -396,19 +399,42 @@ if (window.location.pathname.includes('admin.html')) {
         // Setup handlers
         setupAdminHandlers();
         
+        // Login form handler
         const loginForm = document.getElementById('loginForm');
         if (loginForm) {
             loginForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                console.log('Login submitted, loading data...');
-                setTimeout(() => {
-                    loadAdminPageData();
-                }, 100);
+                const password = document.getElementById('passwordInput').value;
+                
+                if (password === ADMIN_PASSWORD) {
+                    document.getElementById('loginScreen').style.display = 'none';
+                    document.getElementById('adminPanel').style.display = 'block';
+                    sessionStorage.setItem('adminLoggedIn', 'true');
+                    
+                    console.log('Login successful, loading data...');
+                    setTimeout(() => {
+                        loadAdminPageData();
+                    }, 100);
+                } else {
+                    alert('كلمة المرور غير صحيحة!');
+                }
             });
         }
         
-        // If already logged in, load data immediately
+        // Logout handler
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+                sessionStorage.removeItem('adminLoggedIn');
+                location.reload();
+            });
+        }
+        
+        // If already logged in, show admin panel and load data
         if (sessionStorage.getItem('adminLoggedIn') === 'true') {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'block';
+            
             console.log('Already logged in, loading data...');
             setTimeout(() => {
                 loadAdminPageData();
@@ -773,10 +799,21 @@ window.closeModals = closeModals;
 
 // ===== Display Page Functions =====
 if (window.location.pathname.includes('display.html')) {
-    loadDisplayPageData();
+    console.log('Display page detected');
     
-    // Auto-refresh every 5 seconds
-    setInterval(loadDisplayPageData, 5000);
+    const initDisplayPage = () => {
+        console.log('Initializing display page...');
+        loadDisplayPageData();
+        
+        // Auto-refresh every 5 seconds
+        setInterval(loadDisplayPageData, 5000);
+    };
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initDisplayPage);
+    } else {
+        initDisplayPage();
+    }
 }
 
 async function loadDisplayPageData() {

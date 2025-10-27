@@ -175,34 +175,7 @@
     <!-- Supabase -->
     <script type="module" src="script-supabase.js"></script>
     <script>
-        // Simple admin authentication
-        const ADMIN_PASSWORD = "takatuf2025";
-        
-        document.getElementById('loginForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const password = document.getElementById('passwordInput').value;
-            if (password === ADMIN_PASSWORD) {
-                document.getElementById('loginScreen').style.display = 'none';
-                document.getElementById('adminPanel').style.display = 'block';
-                sessionStorage.setItem('adminLoggedIn', 'true');
-            } else {
-                alert('كلمة المرور غير صحيحة!');
-            }
-        });
-
-        // Check if already logged in
-        if (sessionStorage.getItem('adminLoggedIn') === 'true') {
-            document.getElementById('loginScreen').style.display = 'none';
-            document.getElementById('adminPanel').style.display = 'block';
-        }
-
-        // Logout
-        document.getElementById('logoutBtn').addEventListener('click', () => {
-            sessionStorage.removeItem('adminLoggedIn');
-            location.reload();
-        });
-
-        // Tab switching
+        // Tab switching only (login handled in script-supabase.js)
         document.querySelectorAll('.admin-tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
