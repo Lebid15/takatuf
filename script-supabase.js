@@ -653,6 +653,8 @@ window.editDonor = function(id, currency, name, amount) {
 window.deleteDonor = async function(id, currency) {
     if (!confirm('هل أنت متأكد من حذف هذا المتبرع؟')) return;
     
+    console.log('Deleting donor:', id, currency);
+    
     try {
         const tableName = `donors_${currency}`;
         const { error } = await supabase
@@ -661,10 +663,11 @@ window.deleteDonor = async function(id, currency) {
             .eq('id', id);
         
         if (error) throw error;
-        await loadAdminPageData();
+        console.log('Donor deleted successfully');
+        // Real-time will update the table automatically
     } catch (error) {
         console.error('Error deleting donor:', error);
-        alert('حدث خطأ أثناء الحذف');
+        alert('حدث خطأ أثناء الحذف: ' + error.message);
     }
 };
 
@@ -675,6 +678,11 @@ async function saveDonor(e) {
     const currency = document.getElementById('donorCurrency').value;
     const name = document.getElementById('donorName').value;
     const amount = parseFloat(document.getElementById('donorAmount').value);
+    
+    if (!name || !amount || isNaN(amount)) {
+        alert('الرجاء إدخال الاسم والمبلغ بشكل صحيح');
+        return false;
+    }
     
     const donorData = {
         name,
@@ -693,6 +701,7 @@ async function saveDonor(e) {
                 .eq('id', id);
             
             if (error) throw error;
+            console.log('Donor updated successfully');
         } else {
             // Add new donor
             const { error } = await supabase
@@ -700,14 +709,15 @@ async function saveDonor(e) {
                 .insert([donorData]);
             
             if (error) throw error;
+            console.log('Donor added successfully');
         }
         
         closeModals();
-        await loadAdminPageData();
+        // Real-time will update the table automatically, no need to reload
         return false;
     } catch (error) {
         console.error('Error saving donor:', error);
-        alert('حدث خطأ أثناء الحفظ');
+        alert('حدث خطأ أثناء الحفظ: ' + error.message);
         return false;
     }
 }
@@ -737,6 +747,8 @@ window.editPaymentMethod = function(id, data) {
 window.deletePaymentMethod = async function(id) {
     if (!confirm('هل أنت متأكد من حذف وسيلة الدفع؟')) return;
     
+    console.log('Deleting payment method:', id);
+    
     try {
         const { error } = await supabase
             .from('payment_methods')
@@ -744,10 +756,17 @@ window.deletePaymentMethod = async function(id) {
             .eq('id', id);
         
         if (error) throw error;
-        await loadAdminPageData();
+        console.log('Payment method deleted successfully');
+        
+        // Reload payment methods manually (no real-time for this table)
+        const { data: methods } = await supabase
+            .from('payment_methods')
+            .select('*')
+            .order('timestamp', { ascending: false });
+        displayPaymentMethodsList(methods);
     } catch (error) {
         console.error('Error deleting payment method:', error);
-        alert('حدث خطأ أثناء الحذف');
+        alert('حدث خطأ أثناء الحذف: ' + error.message);
     }
 };
 
@@ -774,20 +793,29 @@ async function savePaymentMethod(e) {
                 .eq('id', id);
             
             if (error) throw error;
+            console.log('Payment method updated successfully');
         } else {
             const { error } = await supabase
                 .from('payment_methods')
                 .insert([methodData]);
             
             if (error) throw error;
+            console.log('Payment method added successfully');
         }
         
         closeModals();
-        await loadAdminPageData();
+        
+        // Reload payment methods
+        const { data: methods } = await supabase
+            .from('payment_methods')
+            .select('*')
+            .order('timestamp', { ascending: false });
+        displayPaymentMethodsList(methods);
+        
         return false;
     } catch (error) {
         console.error('Error saving payment method:', error);
-        alert('حدث خطأ أثناء الحفظ');
+        alert('حدث خطأ أثناء الحفظ: ' + error.message);
         return false;
     }
 }
