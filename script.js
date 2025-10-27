@@ -53,6 +53,7 @@ console.log('Database:', database);
 let currentDonorsData = { usd: null, try: null };
 let latestDonation = null;
 let tickerBaseMessage = '';
+let adminHandlersInitialized = false;
 
 function formatNumber(num) {
     return new Intl.NumberFormat('en-US', {
@@ -338,6 +339,8 @@ if (window.location.pathname.includes('admin.html')) {
         loadAdminPageData();
         setupAdminHandlers();
     }
+
+    setupAdminHandlers();
 }
 
 async function loadAdminPageData() {
@@ -460,6 +463,10 @@ function displayPaymentMethodsList(methods) {
 }
 
 function setupAdminHandlers() {
+    if (adminHandlersInitialized) {
+        return;
+    }
+    adminHandlersInitialized = true;
     console.log('Setting up admin handlers...');
     
     const addDonorUSD = document.getElementById('addDonorUSD');
