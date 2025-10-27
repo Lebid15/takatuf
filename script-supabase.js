@@ -191,24 +191,37 @@ function subscribeToChanges() {
 }
 
 function updateDonationsSummary(currency, donors) {
+    console.log(`updateDonationsSummary called for ${currency}:`, donors);
+    
     // Store donors data for modal
     currentDonorsData[currency] = donors;
     refreshLatestDonation();
     
+    const totalElement = document.getElementById(`total${currency.toUpperCase()}`);
+    const countElement = document.getElementById(`count${currency.toUpperCase()}`);
+    
+    if (!totalElement || !countElement) {
+        console.warn(`Elements not found for ${currency}`);
+        return;
+    }
+    
     if (!donors || donors.length === 0) {
-        document.getElementById(`total${currency.toUpperCase()}`).textContent = '0';
-        document.getElementById(`count${currency.toUpperCase()}`).textContent = '0';
+        totalElement.textContent = '0';
+        countElement.textContent = '0';
         return;
     }
     
     const total = donors.reduce((sum, donor) => sum + (parseFloat(donor.amount) || 0), 0);
     const count = donors.length;
     
-    document.getElementById(`total${currency.toUpperCase()}`).textContent = formatNumber(total);
-    document.getElementById(`count${currency.toUpperCase()}`).textContent = count;
+    console.log(`Total for ${currency}: ${total}, Count: ${count}`);
+    
+    totalElement.textContent = formatNumber(total);
+    countElement.textContent = count;
 }
 
 function refreshLatestDonation() {
+    console.log('refreshLatestDonation called', currentDonorsData);
     let latest = null;
     ['usd', 'try'].forEach((currency) => {
         const donors = currentDonorsData[currency];
@@ -229,6 +242,7 @@ function refreshLatestDonation() {
     });
 
     latestDonation = latest;
+    console.log('Latest donation:', latestDonation);
     updateTickerText();
 }
 
@@ -252,6 +266,8 @@ function updateTickerText() {
     }
 
     const finalMessage = parts.join(' • ');
+    console.log('Ticker message:', finalMessage);
+    
     const publicTicker = document.getElementById('tickerText');
     const displayTicker = document.getElementById('displayTicker');
 
