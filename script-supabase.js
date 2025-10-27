@@ -1,27 +1,29 @@
 // ===== Auto Slideshow =====
-if (document.querySelector('.slideshow-container')) {
+const slideshowRoot = document.querySelector('.slideshow-box');
+if (slideshowRoot) {
     let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
+    const slides = document.querySelectorAll('.slide-item');
+
+    if (slides.length <= 1) {
+        slides.forEach((slide) => slide.classList.add('active'));
+    } else {
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
     
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === index) {
-                slide.classList.add('active');
-            }
-        });
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+    
+        // Auto change slide every 4 seconds
+        setInterval(nextSlide, 4000);
+    
+        // Show first slide
+        showSlide(0);
     }
-    
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-    
-    // Auto change slide every 4 seconds
-    setInterval(nextSlide, 4000);
-    
-    // Show first slide
-    showSlide(0);
 }
 
 // ===== Supabase Configuration =====

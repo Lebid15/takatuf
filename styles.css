@@ -792,7 +792,8 @@ body {
 .site-footer {
     background: linear-gradient(180deg, transparent 0%, rgba(15, 15, 35, 0.9) 100%);
     padding: 40px 0;
-    text-align: center;
+    text-align: right;
+    direction: rtl;
     border-top: 2px solid rgba(102, 126, 234, 0.2);
     margin-top: 60px;
 }
@@ -808,6 +809,29 @@ body {
 .footer-copy {
     color: var(--text-gray);
     font-size: 0.95rem;
+}
+
+.footer-copy a {
+    color: var(--neon-blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.footer-copy a:hover {
+    text-decoration: underline;
+    color: var(--text-white);
+}
+
+.footer-credit {
+    color: rgba(229, 231, 235, 0.7);
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+.footer-meta {
+    margin-top: 14px;
+    text-align: right;
+    direction: rtl;
 }
 
 /* ===== Responsive ===== */
@@ -2065,7 +2089,8 @@ body {
     border: 1px solid rgba(102, 126, 234, 0.3);
     border-radius: 18px;
     padding: 18px 28px;
-    text-align: center;
+    text-align: right;
+    direction: rtl;
     backdrop-filter: blur(16px);
     box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
 }
