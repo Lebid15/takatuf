@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تكاتف - حملة خيرية لدعم مرضى السرطان</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="public-page">
+    <!-- Compact Header -->
+    <header class="compact-header">
+        <div class="header-content">
+            <div class="header-text">
+                <h1 class="campaign-name">حملة تكاتف</h1>
+                <p class="campaign-tagline">لدعم مرضى السرطان</p>
+            </div>
+            <div class="header-logo">
+                <div class="logo-ring"></div>
+                <img src="logo.png" alt="شعار تكاتف" id="logo">
+            </div>
+        </div>
+    </header>
+
+    <!-- Ticker Banner -->
+    <section class="ticker-banner">
+        <div class="ticker-wrapper">
+            <div class="ticker-content" id="tickerText">
+                ✨ قام فاعل خير بالتبرع بمبلغ $1950 • 🌟 قامت عائلة الأمل بالتبرع بمبلغ ₺12000 • 💙 معاً نصنع الأمل • 🙏 كل ما تقدمه اليوم ينتظرك غداً
+            </div>
+        </div>
+    </section>
+
+    <!-- Auto Slideshow -->
+    <section class="hero-slideshow">
+        <div class="slideshow-box">
+            <div class="slide-item active">
+                <img src="image1.png" alt="صورة الحملة 1" id="image1">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="slide-item">
+                <img src="image2.png" alt="صورة الحملة 2" id="image2">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="slide-item">
+                <img src="image3.png" alt="صورة الحملة 3" id="image3">
+                <div class="slide-overlay"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donations Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <!-- Dollar Card -->
+                <div class="stat-card gradient-card">
+                    <h3 class="stat-title"><span class="stat-icon">💵</span> إجمالي التبرعات بالدولار</h3>
+                    <div class="stat-number">
+                        $<span id="totalUSD">0</span>
+                    </div>
+                    <p class="stat-label"><span id="countUSD">0</span> متبرع كريم</p>
+                    <button class="btn-view-donors" onclick="showDonors('usd')">
+                        👥 عرض المتبرعين
+                    </button>
+                </div>
+
+                <!-- Lira Card -->
+                <div class="stat-card gradient-card">
+                    <h3 class="stat-title"><span class="stat-icon">💶</span> إجمالي التبرعات بالليرة</h3>
+                    <div class="stat-number">
+                        ₺<span id="totalTRY">0</span>
+                    </div>
+                    <p class="stat-label"><span id="countTRY">0</span> متبرع كريم</p>
+                    <button class="btn-view-donors" onclick="showDonors('try')">
+                        👥 عرض المتبرعين
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quranic Verse -->
+    <section class="verse-section">
+        <div class="container">
+            <div class="verse-box">
+                <div class="verse-decoration">✨</div>
+                <p class="verse-text">
+                    مَن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا فَيُضَاعِفَهُ لَهُ أَضْعَافًا كَثِيرَةً
+                </p>
+                <p class="verse-ref">سورة البقرة - آية 245</p>
+                
+                <div class="divider-line"></div>
+                
+                <p class="hadith-text">
+                    "مَن نَفَّسَ عن مُؤْمِنٍ كُرْبَةً مِن كُرَبِ الدُّنْيَا، نَفَّسَ اللَّهُ عنْه كُرْبَةً مِن كُرَبِ يَومِ القِيَامَةِ"
+                </p>
+                <p class="hadith-ref">رواه مسلم</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods -->
+    <section class="payment-section">
+        <div class="container">
+            <h2 class="section-heading">طرق التبرع والتواصل</h2>
+            
+            <div class="payment-methods-grid">
+                <!-- ShamCash Card (Static) -->
+                <div class="payment-method-card shamcash-card">
+                    <div style="text-align: center; margin-bottom: 12px;">
+                        <img src="images/shamcash-qr.jpg" alt="شام كاش QR Code" style="max-width: 100%; max-height: 200px; border-radius: 10px;">
+                    </div>
+                    <div class="payment-card-header">
+                        <span class="payment-method-name">💳 شام كاش</span>
+                    </div>
+                    <div class="payment-method-details"><strong>الاسم:</strong> ShamCash</div>
+                    <div class="payment-method-details"><strong>الحساب:</strong> a68c5a9a900bec56d1a538795ef5e83d</div>
+                    <button class="btn-copy" onclick="copyToClipboard('a68c5a9a900bec56d1a538795ef5e83d')">📋 نسخ رقم الحساب</button>
+                </div>
+                
+                <!-- Dynamic Payment Methods from Firebase -->
+                <div id="allPaymentMethods" style="display: contents;">
+                    <p class="loading-text">جاري التحميل...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donors Modal -->
+    <div class="donors-modal" id="donorsModal">
+        <div class="modal-overlay" onclick="closeDonorsModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">قائمة المتبرعين</h3>
+                <button class="modal-close" onclick="closeDonorsModal()">✕</button>
+            </div>
+            <div class="modal-body" id="donorsListContainer">
+                <p class="loading-text">جاري التحميل...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-quote">✨ فَمَن تَصَدَّقَ وَأَصْلَحَ فَأَجْرُهُ عَلَى اللَّهِ ✨</p>
+            <p class="footer-copy">© 2025 حملة تكاتف - جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

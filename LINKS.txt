@@ -1,0 +1,33 @@
+🤲 تكاتف - روابط المعاينة المباشرة
+
+أثناء التطوير على Replit:
+================================
+
+✅ الصفحة العامة:
+http://localhost:5000/takatuf/index.html
+
+✅ لوحة الإدارة:
+http://localhost:5000/takatuf/admin.html
+كلمة المرور: takatuf2025
+
+✅ شاشة البروجكتور:
+http://localhost:5000/takatuf/display.html
+
+
+بعد النشر على GitHub Pages:
+================================
+
+✅ الصفحة العامة:
+https://YOUR_USERNAME.github.io/takatuf/index.html
+
+✅ لوحة الإدارة:
+https://YOUR_USERNAME.github.io/takatuf/admin.html
+
+✅ شاشة البروجكتور:
+https://YOUR_USERNAME.github.io/takatuf/display.html
+
+
+📝 ملاحظات مهمة:
+- لا تنسى تحديث Firebase Config في script.js
+- راجع README.md للتعليمات الكاملة
+- غيّر كلمة المرور في admin.html قبل النشر!

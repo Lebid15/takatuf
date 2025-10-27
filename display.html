@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض تكاتف - شاشة البروجكتور</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="display-page">
+    <div class="display-sky" aria-hidden="true">
+        <div class="sun-orbit">
+            <div class="sun-core"></div>
+        </div>
+        <div class="moon-orbit">
+            <div class="moon-core"></div>
+        </div>
+        <div class="star-field"></div>
+    </div>
+
+    <div class="display-wrapper">
+        <header class="display-header">
+            <div class="display-marquee">
+                <button class="btn-fullscreen" id="displayFullscreen" aria-label="تبديل وضع ملء الشاشة">
+                    ⛶
+                </button>
+                <div class="marquee-track" id="displayTicker">
+                    قام فاعل خير بالتبرع بمبلغ $1950 • كل ما تقدمه اليوم يعود أضعافاً من الأجر غداً
+                </div>
+            </div>
+        </header>
+
+        <main class="display-main">
+            <section class="donor-column donor-column-try">
+                <div class="column-heading">
+                    <span class="column-icon">₺</span>
+                    <h2>أعلى التبرعات بالليرة التركية</h2>
+                </div>
+                <div class="donor-list" id="topDonorsTRY">
+                    <!-- سيتم ملؤها من Firebase -->
+                </div>
+            </section>
+
+            <section class="display-center">
+                <div class="center-orbit"></div>
+                <div class="center-inner">
+                    <div class="center-logo-group">
+                        <span class="logo-text logo-text-right">حملة</span>
+                        <div class="center-logo-ring">
+                            <img src="logo.png" alt="تكاتف" class="center-logo" id="displayLogo">
+                        </div>
+                        <span class="logo-text logo-text-left">تكاتف</span>
+                    </div>
+                    <div class="center-stats">
+                        <div class="center-stat">
+                            <span class="stat-label">إجمالي التبرعات بالدولار</span>
+                            <span class="stat-number">$<span id="displayTotalUSD">0</span></span>
+                        </div>
+                        <div class="center-stat">
+                            <span class="stat-label">إجمالي التبرعات بالليرة التركية</span>
+                            <span class="stat-number">₺<span id="displayTotalTRY">0</span></span>
+                        </div>
+                        <div class="center-stat">
+                            <span class="stat-label">عدد القلوب المتكاتفة</span>
+                            <span class="stat-number"><span id="displayDonorCount">0</span></span>
+                        </div>
+                    </div>
+                    <div class="center-message">
+                        <p>كل مساهمة تشرق كالشمس، وتُشعل قمراً جديداً في سماء الأمل. شكراً لدفء عطائكم.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="donor-column donor-column-usd">
+                <div class="column-heading">
+                    <span class="column-icon">$</span>
+                    <h2>أعلى التبرعات بالدولار</h2>
+                </div>
+                <div class="donor-list" id="topDonorsUSD">
+                    <!-- سيتم ملؤها من Firebase -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="display-footer">
+            <div class="footer-card">
+                <p>﴿وَمَا تُقَدِّمُوا لِأَنفُسِكُم مِّنْ خَيْرٍ تَجِدُوهُ عِندَ اللَّهِ﴾</p>
+                <span class="footer-note">دعاؤكم وابتسامتكم وقود الأمل لمرضانا</span>
+            </div>
+        </footer>
+    </div>
+
+    <div class="floating-emoji emoji-one" aria-hidden="true">💙</div>
+    <div class="floating-emoji emoji-two" aria-hidden="true">🌟</div>
+    <div class="floating-emoji emoji-three" aria-hidden="true">🙏</div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
