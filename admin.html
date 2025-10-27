@@ -117,9 +117,9 @@
     <!-- Add/Edit Donor Modal -->
     <div class="modal" id="donorModal">
         <div class="modal-content glass-card">
-            <span class="modal-close">&times;</span>
+            <span class="modal-close" onclick="closeModals()">&times;</span>
             <h2 id="modalTitle">إضافة متبرع جديد</h2>
-            <form id="donorForm">
+            <form id="donorForm" onsubmit="return saveDonor(event)">
                 <input type="hidden" id="donorId">
                 <input type="hidden" id="donorCurrency">
                 
@@ -135,7 +135,7 @@
 
                 <div class="form-actions">
                     <button type="submit" class="btn-primary">حفظ</button>
-                    <button type="button" class="btn-secondary" id="cancelDonor">إلغاء</button>
+                    <button type="button" class="btn-secondary" id="cancelDonor" onclick="closeModals()">إلغاء</button>
                 </div>
             </form>
         </div>
@@ -144,9 +144,9 @@
     <!-- Add/Edit Payment Method Modal -->
     <div class="modal" id="paymentModal">
         <div class="modal-content glass-card">
-            <span class="modal-close">&times;</span>
+            <span class="modal-close" onclick="closeModals()">&times;</span>
             <h2 id="paymentModalTitle">إضافة وسيلة دفع</h2>
-            <form id="paymentForm">
+            <form id="paymentForm" onsubmit="return savePaymentMethod(event)">
                 <input type="hidden" id="paymentId">
                 
                 <div class="form-group">
@@ -166,7 +166,7 @@
 
                 <div class="form-actions">
                     <button type="submit" class="btn-primary">حفظ</button>
-                    <button type="button" class="btn-secondary" id="cancelPayment">إلغاء</button>
+                    <button type="button" class="btn-secondary" id="cancelPayment" onclick="closeModals()">إلغاء</button>
                 </div>
             </form>
         </div>

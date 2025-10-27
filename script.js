@@ -543,7 +543,7 @@ window.deleteDonor = async function(id, currency) {
 };
 
 async function saveDonor(e) {
-    e.preventDefault();
+    e?.preventDefault();
     
     const id = document.getElementById('donorId').value;
     const currency = document.getElementById('donorCurrency').value;
@@ -566,10 +566,16 @@ async function saveDonor(e) {
         }
         
         closeModals();
+        return false;
     } catch (error) {
         console.error('Error saving donor:', error);
+        return false;
     }
+
+    return false;
 }
+
+window.saveDonor = saveDonor;
 
 function openPaymentMethodModal() {
     document.getElementById('paymentModal').classList.add('active');
@@ -602,7 +608,7 @@ window.deletePaymentMethod = async function(id) {
 };
 
 async function savePaymentMethod(e) {
-    e.preventDefault();
+    e?.preventDefault();
     
     const id = document.getElementById('paymentId').value;
     const title = document.getElementById('paymentTitle').value;
@@ -624,10 +630,16 @@ async function savePaymentMethod(e) {
         }
         
         closeModals();
+        return false;
     } catch (error) {
         console.error('Error saving payment method:', error);
+        return false;
     }
+
+    return false;
 }
+
+window.savePaymentMethod = savePaymentMethod;
 
 async function saveTickerMessage() {
     const message = document.getElementById('tickerMessage').value;
@@ -648,6 +660,8 @@ function closeModals() {
         modal.classList.remove('active');
     });
 }
+
+window.closeModals = closeModals;
 
 // ===== Display Page Functions =====
 if (window.location.pathname.includes('display.html')) {
