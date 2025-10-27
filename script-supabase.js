@@ -76,14 +76,28 @@ function normalizeContactText(text) {
 }
 
 // ===== Public Page Functions =====
+// Check if we're on the public page
+const isPublicPage = () => {
+    return document.getElementById('totalUSD') !== null;
+};
+
 // Wait for DOM to be ready
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('totalUSD')) {
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPublicPage);
+} else {
+    // DOM already loaded
+    initPublicPage();
+}
+
+function initPublicPage() {
+    if (isPublicPage()) {
         console.log('Public page detected, loading data...');
         loadPublicPageData();
         setupPaymentTabs();
+    } else {
+        console.log('Not a public page');
     }
-});
+}
 
 async function loadPublicPageData() {
     try {
@@ -375,18 +389,23 @@ window.closeDonorsModal = function() {
 if (window.location.pathname.includes('admin.html')) {
     console.log('Admin page detected');
     
-    // Wait for DOM ready
-    document.addEventListener('DOMContentLoaded', () => {
+    // Initialize admin page
+    const initAdminPage = () => {
+        console.log('Initializing admin page...');
+        
         // Setup handlers
         setupAdminHandlers();
         
-        document.getElementById('loginForm')?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            console.log('Login submitted, loading data...');
-            setTimeout(() => {
-                loadAdminPageData();
-            }, 100);
-        });
+        const loginForm = document.getElementById('loginForm');
+        if (loginForm) {
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                console.log('Login submitted, loading data...');
+                setTimeout(() => {
+                    loadAdminPageData();
+                }, 100);
+            });
+        }
         
         // If already logged in, load data immediately
         if (sessionStorage.getItem('adminLoggedIn') === 'true') {
@@ -395,7 +414,14 @@ if (window.location.pathname.includes('admin.html')) {
                 loadAdminPageData();
             }, 300);
         }
-    });
+    };
+    
+    // Wait for DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAdminPage);
+    } else {
+        initAdminPage();
+    }
 }
 
 async function loadAdminPageData() {
