@@ -386,7 +386,12 @@ window.closeDonorsModal = function() {
 };
 
 // ===== Admin Page Functions =====
-if (window.location.pathname.includes('admin.html')) {
+const isAdminPage = () => {
+    return window.location.pathname.includes('admin.html') || 
+           window.location.pathname.includes('admin');
+};
+
+if (isAdminPage()) {
     console.log('Admin page detected');
     
     // Admin password
@@ -798,7 +803,12 @@ function closeModals() {
 window.closeModals = closeModals;
 
 // ===== Display Page Functions =====
-if (window.location.pathname.includes('display.html')) {
+const isDisplayPage = () => {
+    return window.location.pathname.includes('display.html') || 
+           window.location.pathname.includes('display');
+};
+
+if (isDisplayPage()) {
     console.log('Display page detected');
     
     const initDisplayPage = () => {
