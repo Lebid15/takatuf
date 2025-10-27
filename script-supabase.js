@@ -566,6 +566,22 @@ function displayDonorsTable(currency, donors) {
     });
 }
 
+async function refreshAdminDonors(currency) {
+    const tableName = `donors_${currency}`;
+    try {
+        const { data, error } = await supabase
+            .from(tableName)
+            .select('*')
+            .order('timestamp', { ascending: false });
+
+        if (error) throw error;
+        displayDonorsTable(currency, data || []);
+    } catch (error) {
+        console.error(`Error refreshing ${currency} donors:`, error);
+        alert('تعذر تحديث قائمة المتبرعين، يرجى إعادة تحميل الصفحة.');
+    }
+}
+
 function displayPaymentMethodsList(methods) {
     const table = document.getElementById('paymentMethodsTable');
     if (!table) return;
@@ -663,8 +679,8 @@ window.deleteDonor = async function(id, currency) {
             .eq('id', id);
         
         if (error) throw error;
-        console.log('Donor deleted successfully');
-        // Real-time will update the table automatically
+    console.log('Donor deleted successfully');
+    await refreshAdminDonors(currency);
     } catch (error) {
         console.error('Error deleting donor:', error);
         alert('حدث خطأ أثناء الحذف: ' + error.message);
@@ -712,8 +728,8 @@ async function saveDonor(e) {
             console.log('Donor added successfully');
         }
         
-        closeModals();
-        // Real-time will update the table automatically, no need to reload
+    closeModals();
+    await refreshAdminDonors(currency);
         return false;
     } catch (error) {
         console.error('Error saving donor:', error);
