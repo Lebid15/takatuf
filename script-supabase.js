@@ -41,6 +41,7 @@ let currentDonorsData = { usd: null, try: null };
 let latestDonation = null;
 let tickerBaseMessage = '';
 let adminHandlersInitialized = false;
+let adminSubscriptionsInitialized = false;
 
 function formatNumber(num) {
     return new Intl.NumberFormat('en-US', {
@@ -75,15 +76,14 @@ function normalizeContactText(text) {
 }
 
 // ===== Public Page Functions =====
-if (window.location.pathname.includes('index.html') || 
-    window.location.pathname.endsWith('/takatuf/') || 
-    window.location.pathname.endsWith('/') ||
-    window.location.pathname === '/takatuf' ||
-    document.getElementById('totalUSD')) {
-    console.log('Loading public page data...');
-    loadPublicPageData();
-    setupPaymentTabs();
-}
+// Wait for DOM to be ready
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('totalUSD')) {
+        console.log('Public page detected, loading data...');
+        loadPublicPageData();
+        setupPaymentTabs();
+    }
+});
 
 async function loadPublicPageData() {
     try {
@@ -359,24 +359,27 @@ window.closeDonorsModal = function() {
 if (window.location.pathname.includes('admin.html')) {
     console.log('Admin page detected');
     
-    // Setup handlers immediately
-    setupAdminHandlers();
-    
-    document.getElementById('loginForm')?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        console.log('Login submitted, loading data...');
-        setTimeout(() => {
-            loadAdminPageData();
-        }, 100);
+    // Wait for DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+        // Setup handlers
+        setupAdminHandlers();
+        
+        document.getElementById('loginForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            console.log('Login submitted, loading data...');
+            setTimeout(() => {
+                loadAdminPageData();
+            }, 100);
+        });
+        
+        // If already logged in, load data immediately
+        if (sessionStorage.getItem('adminLoggedIn') === 'true') {
+            console.log('Already logged in, loading data...');
+            setTimeout(() => {
+                loadAdminPageData();
+            }, 300);
+        }
     });
-    
-    // If already logged in, load data immediately
-    if (sessionStorage.getItem('adminLoggedIn') === 'true') {
-        console.log('Already logged in, loading data...');
-        setTimeout(() => {
-            loadAdminPageData();
-        }, 500);
-    }
 }
 
 async function loadAdminPageData() {
@@ -408,8 +411,11 @@ async function loadAdminPageData() {
         
         if (!methodsError) displayPaymentMethodsList(methods);
         
-        // Subscribe to real-time changes for admin
-        subscribeToAdminChanges();
+        // Subscribe to real-time changes for admin (only once)
+        if (!adminSubscriptionsInitialized) {
+            subscribeToAdminChanges();
+            adminSubscriptionsInitialized = true;
+        }
         
     } catch (error) {
         console.error('Error loading admin data:', error);
@@ -417,14 +423,20 @@ async function loadAdminPageData() {
 }
 
 function subscribeToAdminChanges() {
+    console.log('Setting up admin real-time subscriptions...');
+    
     // Subscribe to USD donors changes
     supabase
         .channel('admin_donors_usd')
         .on('postgres_changes', 
             { event: '*', schema: 'public', table: 'donors_usd' },
-            () => {
+            async () => {
                 console.log('USD donors changed, reloading...');
-                loadAdminPageData();
+                const { data: usdDonors } = await supabase
+                    .from('donors_usd')
+                    .select('*')
+                    .order('timestamp', { ascending: false });
+                displayDonorsTable('usd', usdDonors);
             }
         )
         .subscribe();
@@ -434,9 +446,13 @@ function subscribeToAdminChanges() {
         .channel('admin_donors_try')
         .on('postgres_changes',
             { event: '*', schema: 'public', table: 'donors_try' },
-            () => {
+            async () => {
                 console.log('TRY donors changed, reloading...');
-                loadAdminPageData();
+                const { data: tryDonors } = await supabase
+                    .from('donors_try')
+                    .select('*')
+                    .order('timestamp', { ascending: false });
+                displayDonorsTable('try', tryDonors);
             }
         )
         .subscribe();
