@@ -256,11 +256,13 @@ function setupPaymentTabs() {
     });
 }
 
-window.copyToClipboard = function(text) {
+function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
         console.info('Copied to clipboard');
     });
-};
+}
+
+window.copyToClipboard = copyToClipboard;
 
 // ===== Donors Modal Functions =====
 
