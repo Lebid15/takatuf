@@ -1,0 +1,364 @@
+/* ======================================================
+   Exam-paper style — mobile-first
+   Mimics the look of the Syrian 9th grade exam paper
+   ====================================================== */
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+html { font-size: 16px; }
+
+body {
+  font-family: Georgia, "Times New Roman", "Cambria", serif;
+  background: #ece5d3;           /* warm paper-like background */
+  min-height: 100vh;
+  color: #1b1b1b;
+  line-height: 1.5;
+  padding-bottom: 80px;
+}
+
+/* ===================== Top bar (sticky) ===================== */
+.exam-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  padding: 10px 12px 8px;
+  border-bottom: 2px solid #1e3c72;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: #444;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  margin-bottom: 4px;
+}
+
+.exam-header h1 {
+  text-align: center;
+  font-size: 0.98rem;
+  color: #1e3c72;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.exam-header .sub {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #555;
+  margin: 2px 0 8px;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* Tabs */
+.tests-nav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.tab {
+  border: 1px solid #1e3c72;
+  background: #fff;
+  color: #1e3c72;
+  padding: 7px 2px;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.1s;
+}
+.tab:active { transform: scale(0.95); }
+.tab.active {
+  background: #1e3c72;
+  color: #fff;
+}
+
+/* Score bar */
+.score-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 2px 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+#testTitle {
+  font-weight: 700;
+  color: #1e3c72;
+  font-size: 0.85rem;
+}
+.score-chip {
+  background: #fff8d6;
+  color: #6b4f00;
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.74rem;
+  border: 1px solid #e0c860;
+  white-space: nowrap;
+}
+.btn-reset {
+  background: #eef0f7;
+  color: #1e3c72;
+  border: 1px solid #1e3c72;
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.74rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-reset:active { background: #d8dceb; }
+
+.progress {
+  height: 4px;
+  background: #eef0f7;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #1e7e34, #28a745);
+  transition: width 0.3s ease;
+}
+
+/* ===================== Questions container ===================== */
+.questions {
+  max-width: 760px;
+  margin: 10px auto;
+  padding: 0 8px;
+}
+
+/* Section divider (for test 5) */
+.section-divider {
+  background: #fff;
+  border: 1.5px solid #1e3c72;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 12px 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-weight: 700;
+  color: #1e3c72;
+  font-size: 0.95rem;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+/* Question card */
+.qcard {
+  background: #fff;
+  border: 1px solid #c9c2ab;
+  border-radius: 4px;
+  padding: 12px 14px 10px;
+  margin-bottom: 10px;
+  direction: ltr;
+  text-align: left;
+}
+
+.qhead {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+  direction: ltr;
+}
+
+.qnum {
+  color: #1e3c72;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.qtopic {
+  font-size: 0.68rem;
+  background: #fff8d6;
+  color: #6b4f00;
+  padding: 1px 7px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 1px solid #e0c860;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  margin-left: auto;
+  direction: ltr;
+}
+
+.qtext {
+  font-size: 1.02rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.qtext .blank {
+  display: inline-block;
+  min-width: 70px;
+  border-bottom: 1.5px solid #555;
+  margin: 0 4px;
+  vertical-align: bottom;
+}
+
+.qtext .underlined {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  font-weight: 700;
+  color: #b71c1c;
+}
+
+/* Options grid 2x2 like the exam paper */
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 10px;
+}
+
+.opt {
+  background: transparent;
+  border: 1px solid #b7b09a;
+  color: #222;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: left;
+  font-family: Georgia, "Times New Roman", serif;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  line-height: 1.4;
+}
+.opt:active { background: #f0ecdf; }
+
+.opt .letter {
+  color: #1e3c72;
+  font-weight: 700;
+  margin-right: 6px;
+  font-family: Georgia, serif;
+  flex-shrink: 0;
+}
+
+/* Answered states */
+.opt.correct {
+  background: #d8efd8;
+  border-color: #1e7e34;
+  color: #155724;
+  font-weight: 700;
+}
+.opt.correct .letter { color: #155724; }
+
+.opt.wrong {
+  background: #ffe0e0;
+  border-color: #c62828;
+  color: #8b1c1c;
+  font-weight: 700;
+}
+.opt.wrong .letter { color: #8b1c1c; }
+
+.opt.disabled { cursor: default; }
+
+/* ===================== "Choose the wrong part" rendering ===================== */
+.wp-hint {
+  font-size: 0.85rem;
+  color: #555;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.wrong-part-sentence {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  align-items: flex-end;
+  line-height: 1.4;
+}
+
+.wp-part {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px 6px 2px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: background 0.12s, border-color 0.12s;
+  font-family: Georgia, "Times New Roman", serif;
+}
+.wp-part:active { background: #f0ecdf; }
+
+.wp-part .wp-text {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  color: #1a1a1a;
+}
+
+.wp-part .wp-label {
+  font-size: 0.78rem;
+  color: #1e3c72;
+  font-weight: 700;
+  margin-top: 4px;
+  font-family: Georgia, serif;
+}
+
+.wp-part.correct {
+  background: #d8efd8;
+  border-color: #1e7e34;
+}
+.wp-part.correct .wp-text { color: #155724; font-weight: 700; }
+.wp-part.correct .wp-label { color: #155724; }
+
+.wp-part.wrong {
+  background: #ffe0e0;
+  border-color: #c62828;
+}
+.wp-part.wrong .wp-text { color: #8b1c1c; font-weight: 700; }
+.wp-part.wrong .wp-label { color: #8b1c1c; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  color: #5a4a30;
+  font-size: 0.82rem;
+  padding: 18px 12px;
+  font-family: Georgia, serif;
+}
+.footer .src {
+  font-size: 0.72rem;
+  margin-top: 4px;
+  color: #7a6a52;
+}
+
+/* ===================== Tablet / Desktop ===================== */
+@media (min-width: 700px) {
+  .exam-header h1 { font-size: 1.2rem; }
+  .exam-header .sub { font-size: 0.9rem; }
+  .tab { padding: 9px 6px; font-size: 0.92rem; }
+  .qtext { font-size: 1.1rem; }
+  .opt { font-size: 1rem; }
+  .questions { padding: 0 16px; }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .tab { font-size: 0.7rem; padding: 6px 1px; }
+  .exam-header h1 { font-size: 0.85rem; }
+  .qtext { font-size: 0.95rem; }
+  .opt { font-size: 0.88rem; padding: 7px 8px; }
+  .options { grid-template-columns: 1fr; }
+}

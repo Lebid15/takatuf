@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#1e3c72" />
+  <title>الامتحان التدريبي — اللغة الإنكليزية / الصف التاسع</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="exam-header">
+    <h1>English Practice — اللغة الإنكليزية / الصف التاسع</h1>
+    <p class="sub">تدريب · 5 اختبارات (250 سؤال)</p>
+
+    <nav class="tests-nav" id="testsNav">
+      <button class="tab active" data-test="test1">اختبار 1</button>
+      <button class="tab" data-test="test2">اختبار 2</button>
+      <button class="tab" data-test="test3">اختبار 3</button>
+      <button class="tab" data-test="test4">اختبار 4</button>
+      <button class="tab" data-test="test5">اختبار 5</button>
+    </nav>
+
+    <div class="score-bar">
+      <span id="testTitle">اختبار 1</span>
+      <span class="score-chip" id="scoreChip">0 / 0</span>
+      <button id="resetBtn" class="btn-reset" title="إعادة تعيين الاختبار">↺ إعادة</button>
+    </div>
+
+    <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+  </header>
+
+  <main id="questions" class="questions"></main>
+
+  <footer class="footer">
+    <p>— انتهت الأسئلة —</p>
+    <p class="src">الأسئلة مصاغة من جمل الكتاب المدرسي (Modules 1–6) ومن نموذج الامتحان السوري 2025.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
