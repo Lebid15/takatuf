@@ -103,6 +103,17 @@ body {
   border: 1px solid #e0c860;
   white-space: nowrap;
 }
+.visit-chip {
+  background: #e7f1ff;
+  color: #1e3c72;
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.74rem;
+  border: 1px solid #b6c9e8;
+  white-space: nowrap;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
 .btn-reset {
   background: #eef0f7;
   color: #1e3c72;

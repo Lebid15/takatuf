@@ -973,3 +973,33 @@ resetBtn.addEventListener("click", () => {
 
 // Initial render
 renderTest("test1");
+
+/* =====================================================================
+   Visitor counter — uses the free CounterAPI service (no signup)
+   - Each new browser (no localStorage flag) increments the counter once.
+   - Subsequent visits from the same browser only READ the count.
+   ===================================================================== */
+(function loadVisitorCount() {
+  const chip = document.getElementById("visitChip");
+  if (!chip) return;
+
+  const NAMESPACE = "takatuf-net";
+  const KEY = "visits";
+  const FLAG = "tkt_visited_v1";
+  const alreadyCounted = localStorage.getItem(FLAG) === "1";
+
+  const endpoint = alreadyCounted
+    ? `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/`
+    : `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`;
+
+  fetch(endpoint)
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(data => {
+      const n = (data && (data.count ?? data.value)) || 0;
+      chip.textContent = `👁 ${n.toLocaleString("en-US")} زائر`;
+      if (!alreadyCounted) localStorage.setItem(FLAG, "1");
+    })
+    .catch(() => {
+      chip.style.display = "none";
+    });
+})();
