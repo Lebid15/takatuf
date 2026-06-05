@@ -853,11 +853,10 @@ function renderTest(testId) {
     const card = document.createElement("article");
     card.className = "qcard";
 
-    // Build head (number + topic)
+    // Build head (number only — topic intentionally hidden so it doesn't give a hint)
     const headHtml = `
       <div class="qhead">
         <span class="qnum">${idx + 1}.</span>
-        <span class="qtopic">${escapeHtml(q.topic || "")}</span>
       </div>
     `;
 
@@ -901,7 +900,9 @@ function renderTest(testId) {
       textHtml = `<div class="qtext">${escapeHtml(q.before)}<span class="underlined">${escapeHtml(q.under)}</span>${escapeHtml(q.after)}</div>`;
     } else {
       // standard MCQ (q.q has the sentence)
-      const text = (q.q || "").replace(/___/g, '<span class="blank">&nbsp;</span>');
+      // Strip any trailing verb-hint in parentheses, e.g. "(ride)" or "(do — for a living)"
+      const cleaned = (q.q || "").replace(/\s*\([^()]*\)\s*$/, "");
+      const text = cleaned.replace(/___/g, '<span class="blank">&nbsp;</span>');
       textHtml = `<div class="qtext">${text}</div>`;
     }
 
