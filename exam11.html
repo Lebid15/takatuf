@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=920">
+<title>اختبار تدريبي – إنجليزية ثالثة ثانوي – نموذج 11</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 13px;
+  background: #ddd;
+  padding: 20px;
+}
+.page {
+  width: 880px;
+  margin: 0 auto 28px auto;
+  background: #fff;
+  border: 2px solid #000;
+}
+.hdr-top { display: flex; border-bottom: 1px solid #000; font-size: 12px; }
+.hdr-right { width: 170px; padding: 4px 6px; border-left: 1px solid #000;
+  line-height: 1.8; direction: rtl; }
+.hdr-center { flex: 1; text-align: center; padding: 4px; border-left: 1px solid #000; }
+.hdr-center .exam-title { font-weight: bold; font-size: 13.5px; }
+.hdr-center .subject-line { font-size: 14px; font-weight: bold; margin-top: 4px; text-decoration: underline; }
+.hdr-left { width: 130px; padding: 4px 6px; line-height: 1.8; }
+.hdr-page { text-align: center; font-size: 12px; padding: 2px; border-bottom: 1px solid #000; direction: rtl; }
+.hdr-note { text-align: center; font-size: 11.5px; font-style: italic; padding: 2px 6px; border-bottom: 2px solid #000; direction: rtl; }
+.two-col { display: flex; align-items: stretch; }
+.col-L { flex: 1; border-right: 1px solid #000; min-width: 0; }
+.col-R { flex: 1; min-width: 0; }
+.sec-title { font-weight: bold; text-decoration: underline; padding: 5px 7px 3px 7px; font-size: 13px; line-height: 1.4; }
+.task-title { font-weight: bold; text-decoration: underline; padding: 4px 7px 2px 7px; font-size: 12.5px; margin-top: 2px; }
+.marks-right { float: right; text-decoration: none; font-weight: bold; }
+.reading-text { padding: 5px 8px; line-height: 1.6; text-align: justify; font-size: 12.5px; }
+.qblock { padding: 3px 8px 1px 8px; line-height: 1.5; font-size: 12.5px; }
+.opts { padding: 1px 4px 2px 18px; font-size: 12px; line-height: 1.5; }
+.btn-ans { display: inline-block; margin: 3px 0 4px 18px; padding: 2px 10px;
+  background: #1a5276; color: #fff; border: none; cursor: pointer;
+  font-size: 11px; font-family: "Times New Roman", Times, serif; user-select: none; }
+.btn-ans:hover { background: #154360; }
+.ans-box { display: none; background: #eaf4fb; border-left: 3px solid #1a5276;
+  padding: 4px 8px; margin: 0 8px 5px 18px; font-size: 12px; line-height: 1.55; }
+.ans-box.visible { display: block; }
+.sec-sep { border-top: 1px solid #000; margin: 4px 0 0 0; }
+.wline { border-bottom: 1px solid #aaa; height: 21px; margin: 0 8px; }
+.page-footer { text-align: center; font-weight: bold; font-size: 12px;
+  padding: 4px; border-top: 2px solid #000; letter-spacing: 1px; }
+
+.nav-bar {
+  width: 880px;
+  margin: 0 auto 12px auto;
+  background: #1a5276;
+  padding: 7px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  direction: rtl;
+}
+.nav-label {
+  color: #aed6f1;
+  font-size: 12px;
+  margin-left: 8px;
+  white-space: nowrap;
+  font-family: Arial, sans-serif;
+}
+.nav-bar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 3px 9px;
+  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.12);
+  font-family: "Times New Roman", Times, serif;
+}
+.nav-bar a:hover { background: rgba(255,255,255,0.28); }
+.nav-bar a.active {
+  background: #f39c12;
+  color: #000;
+  border-color: #d68910;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <span class="nav-label">التنقل بين النماذج:</span>
+  <a href="exam1.html">Model 01</a> <a href="exam2.html">Model 02</a> <a href="exam3.html">Model 03</a> <a href="exam4.html">Model 04</a> <a href="exam5.html">Model 05</a> <a href="exam6.html">Model 06</a> <a href="exam7.html">Model 07</a> <a href="exam8.html">Model 08</a> <a href="exam9.html">Model 09</a> <a href="exam10.html">Model 10</a> <a href="exam11.html" class="active">Model 11</a> <a href="exam12.html">Model 12</a> <a href="exam13.html">Model 13</a> <a href="exam14.html">Model 14</a>
+</div>
+<div class="page">
+    <div class="hdr-top">
+    <div class="hdr-left">المدة: ساعتان<br>الدرجة: 300/ ثلاثة</div>
+    <div class="hdr-center">
+      <div class="exam-title">اختبار تدريبي – مادة اللغة الإنجليزية – السنة الثالثة ثانوي</div>
+      <div style="font-size:12px;">(الفرع العلمي)</div>
+      <div class="subject-line">اللغة الإنجليزية</div>
+    </div>
+    <div class="hdr-right">
+      الاسم: ________________<br>
+      الرقم: ________________<br>
+      المادة: _______________<br>
+      الدرجة: ______________
+    </div>
+  </div>
+  <div class="hdr-page">(الصفحة الأولى)</div>
+  <div class="hdr-note">(انتبه إلى رقم السؤال بحيث يتطابق مع رقم الجواب ولا تلق صفحة السؤال إلى ورقة الإجابة)</div>
+  <div class="two-col">
+    <div class="col-L">
+      <div class="sec-title">I– Read the following text then do the tasks below:</div>
+      <div class="reading-text">&nbsp;&nbsp;&nbsp;<strong>Antibiotics</strong><br><br>
+&nbsp;&nbsp;&nbsp;Antibiotics are powerful medicines used to fight a wide variety of infections or diseases caused by bacteria in people and animals. Antibiotics work to kill the bacteria or stop them from multiplying. Before bacteria can multiply and cause symptoms, the immune system can typically kill them. Sometimes, however, the number of harmful bacteria is excessive, and the immune system cannot fight them all. At that point, antibiotics are urgently needed.
+<br><br>&nbsp;&nbsp;&nbsp;Different antibiotics work against different types of bacteria. Antibiotics that stop bacteria from multiplying and affect a wide range of bacteria are called broad spectrum antibiotics, like amoxicillin and gentamicin. Antibiotics that kill bacteria and affect only a few types of bacteria are called narrow spectrum antibiotics, such as penicillin.
+<br><br>&nbsp;&nbsp;&nbsp;Some people may develop an allergic reaction to antibiotics, especially penicillin. Side effects might include rash, swelling of the tongue and face, and difficulty in breathing. Allergic reactions to antibiotics might be immediate or delayed. People with reduced liver or kidney function should be cautious when using antibiotics. This may affect the types of antibiotics they can use or the dose they receive.
+<br><br>&nbsp;&nbsp;&nbsp;Medical professionals have concerns that people are overusing antibiotics. The more often antibiotics are used or taken incorrectly, the more chance bacteria have to change and become resistant to them. This can make bacterial infections much harder to treat. Patients should complete the whole course of medication to prevent the return of the infection.
+<br><br>&nbsp;&nbsp;&nbsp;The world needs to change the way it prescribes and uses antibiotics. Even if new medicines are developed, without behaviour change, antibiotic resistance will remain a major threat. Behaviour changes must include actions to reduce the spread of infections through vaccination, hand washing and food hygiene.</div>
+      <div class="task-title">Answer the following questions: <span class="marks-right">(18 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q1.</strong> What is the function of antibiotics and how do they fulfil it? <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Antibiotics are medicines used to fight bacterial infections. They work by killing bacteria or stopping them from multiplying.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q2.</strong> What happens when the immune system cannot fight all harmful bacteria? <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">At that point, antibiotics are urgently needed to fight the excessive number of harmful bacteria.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q3.</strong> Why do bacteria become resistant to antibiotics? <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Because people overuse or take antibiotics incorrectly, which gives bacteria the chance to change and become resistant.</div>
+    </div>
+      <div class="task-title">Find words in the text which mean the following: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q4.</strong> being careful about what one does, especially to avoid danger or risk <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>cautious</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q5.</strong> greater than what seems reasonable or appropriate <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>excessive</strong></div>
+    </div>
+      <div class="task-title">Rewrite the sentences about the text to correct the information: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q6.</strong> The immune system can destroy all bacteria immediately, even if they multiply quickly. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">The immune system <u>cannot</u> always destroy all bacteria; when the number is excessive, antibiotics are needed.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q7.</strong> Patients should stop the course of antibiotics as soon as they feel better. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Patients should <u>complete the whole course</u> of medication to prevent the return of the infection.</div>
+    </div></div>
+    <div class="col-R">
+      <div class="sec-title">II– Read the following text then do the tasks below:</div>
+      <div class="reading-text">&nbsp;&nbsp;&nbsp;Viruses are among the smallest and most numerous living organisms on Earth. Unlike bacteria, viruses cannot reproduce on their own — they need a host cell to survive and multiply. Once a virus enters the human body, it attaches to healthy cells and uses them to make copies of itself, often damaging or destroying those cells in the process.
+<br><br>&nbsp;&nbsp;&nbsp;The human immune system is the body's main defence against viruses. When a virus is detected, the immune system produces antibodies — special proteins that identify and neutralise the threat. However, some viruses, like the influenza virus, change so rapidly that the immune system cannot always recognise them, which is why new flu vaccines are developed every year.
+<br><br>&nbsp;&nbsp;&nbsp;Unlike bacterial infections, viral infections cannot be treated with antibiotics. Instead, doctors rely on antiviral drugs to fight viruses. Vaccination remains the most effective way to prevent viral diseases. Vaccines teach the immune system to recognise and fight specific viruses without causing the disease itself.
+<br><br>&nbsp;&nbsp;&nbsp;Proper hygiene habits are also essential in reducing the spread of viral infections. Washing hands regularly, covering the mouth when coughing, and avoiding close contact with infected individuals can all significantly reduce the risk of transmission. Public health education plays a vital role in spreading awareness about these preventive measures.</div>
+      <div class="task-title">Choose the correct answer a, b, c or d: <span class="marks-right">(24 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q8.</strong> Unlike bacteria, viruses need ______ to survive and reproduce. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- antibiotics &nbsp; b- oxygen &nbsp; c- a host cell &nbsp; d- food</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- a host cell</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q9.</strong> The word 'neutralise' in paragraph 2 means: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- strengthen &nbsp; b- make harmless/cancel out &nbsp; c- multiply &nbsp; d- identify</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- make harmless/cancel out</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q10.</strong> According to the text, viral infections are treated with: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- antibiotics &nbsp; b- vaccines only &nbsp; c- antiviral drugs &nbsp; d- penicillin</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- antiviral drugs</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q11.</strong> The most effective way to prevent viral diseases according to the text is: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- taking antibiotics &nbsp; b- washing hands &nbsp; c- vaccination &nbsp; d- avoiding food</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- vaccination</strong></div>
+    </div>
+      <div class="task-title">Complete the following sentences with information from the text: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q12.</strong> According to the text, new flu vaccines are developed every year because the influenza virus … <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">…changes so rapidly that the immune system cannot always recognise it.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q13.</strong> According to the text, the immune system fights viruses by producing … <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">…antibodies — special proteins that identify and neutralise the threat.</div>
+    </div></div>
+  </div>
+  <div class="page-footer">الصفحة الأولى &nbsp;←&nbsp; تابع في الصفحة الثانية</div>
+</div>
+<div class="page">
+  <div class="hdr-page">(الصفحة الثانية)</div>
+  <div class="hdr-note">(انتبه إلى رقم السؤال بحيث يتطابق مع رقم الجواب ولا تلق صفحة السؤال إلى ورقة الإجابة)</div>
+  <div class="two-col">
+    <div class="col-L">
+      <div class="sec-title">III– Choose the correct answer a, b, c, or d: <span class="marks-right">(54 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q14.</strong> If the government ______ more in healthcare, the quality of life would improve. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- invest &nbsp; b- invested &nbsp; c- had invested &nbsp; d- will invest</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- invested</strong> (Conditional Type 2 — imaginary present)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q15.</strong> If the patient ______ the full course of antibiotics, the infection would not have returned. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- completes &nbsp; b- completed &nbsp; c- had completed &nbsp; d- will complete</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- had completed</strong> (Conditional Type 3 — unreal past)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q16.</strong> The word that has a silent 'k' is: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- kangaroo &nbsp; b- kite &nbsp; c- knowledge &nbsp; d- market</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- knowledge</strong> /ˈnɒlɪdʒ/ — the 'k' is silent</div>
+    </div>
+    <div class="qblock">
+      <strong>Q17.</strong> I ______ to have stayed at home during the epidemic. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- wished &nbsp; b- wish &nbsp; c- had wished &nbsp; d- wishing</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- wish</strong> + past perfect (I wish I had stayed)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q18.</strong> The word 'multiplying' means the same as: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- decreasing &nbsp; b- dividing &nbsp; c- reproducing / increasing in number &nbsp; d- disappearing</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- reproducing / increasing in number</strong></div>
+    </div>
+    <div class="qblock">
+      <strong>Q19.</strong> Bacteria ______ resistant to antibiotics if they are overused. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- become &nbsp; b- became &nbsp; c- will become &nbsp; d- becoming</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- will become</strong> (first conditional result)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q20.</strong> She would have recovered faster _______ she had followed the doctor's advice. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- whether &nbsp; b- unless &nbsp; c- if &nbsp; d- although</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- if</strong> (Conditional Type 3)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q21.</strong> The word that has a silent 'b' is: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- bread &nbsp; b- bomb &nbsp; c- bacteria &nbsp; d- brain</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- bomb</strong> /bɒm/ — the 'b' at the end is silent</div>
+    </div>
+    <div class="qblock">
+      <strong>Q22.</strong> Unless hospitals maintain strict hygiene standards, infections ______ spread rapidly. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- will &nbsp; b- would &nbsp; c- should &nbsp; d- might not</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>a- will</strong> (first conditional with unless)</div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">IV– Complete the following sentences / paragraph by filling in each gap with one functional word: <span class="marks-right">(18 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q23.</strong> Viruses are different from bacteria _______ they need a host cell to reproduce. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>because / in that</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q24.</strong> If bacteria become resistant to antibiotics, infections will be much harder _______ treat. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>to</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q25.</strong> Patients _______ complete the whole course of antibiotics, even if they feel better. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>should / must</strong></div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">V– Write suitable questions about the underlined words: <span class="marks-right">(24 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q26.</strong> Antibiotics are used to fight <u>bacterial infections</u>. <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">What are antibiotics used to fight?</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q27.</strong> <u>Alexander Fleming</u> discovered penicillin in 1928. <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Who discovered penicillin in 1928?</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q28.</strong> The influenza vaccine needs to be updated <u>every year</u>. <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">How often does the influenza vaccine need to be updated?</div>
+    </div></div>
+    <div class="col-R">
+      <div class="sec-title">VI– Rewrite the following sentences as required in brackets: <span class="marks-right">(32 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q29.</strong> "You should complete the full course of antibiotics," the doctor told her. &nbsp; [Reported Speech] <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">The doctor told her that she should complete the full course of antibiotics.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q30.</strong> The scientists discovered a new antibiotic last year. &nbsp; [Passive Voice] <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">A new antibiotic was discovered by the scientists last year.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q31.</strong> The disease was so dangerous that doctors could not treat it with common medicines. &nbsp; [too…to] <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">The disease was too dangerous for doctors to treat with common medicines.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q32.</strong> If bacteria had not become resistant to penicillin, it ______ the most effective antibiotic today. &nbsp; [Complete with Conditional 3] <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">If bacteria had not become resistant to penicillin, it would still be the most effective antibiotic today.</div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">VII– Correct the verbs in brackets: <span class="marks-right">(18 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q33.</strong> I wish I (take) _______ the flu vaccine before travelling. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>had taken</strong> (wish + past perfect)</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q34.</strong> The new drug (test) _______ on patients for the past two years. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>has been tested</strong> (Present Perfect Passive)</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q35.</strong> If the immune system (be) _______ stronger, it could fight most infections on its own. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>were</strong> (Conditional Type 2 — imaginary present)</div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">VIII– Complete the following sentences using clauses: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q36.</strong> Unless people wash their hands regularly, _________________________. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Sample: <em>…the risk of spreading bacterial and viral infections will increase significantly.</em></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q37.</strong> If Alexander Fleming had not discovered penicillin, _________________________. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Sample: <em>…millions of people would have died from bacterial infections that are now easily treatable.</em></div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">IX– Translation:</div>
+      <div class="qblock">
+        <strong>Q38.</strong> Translate the following sentence into Arabic: <span class="marks-right">(06 marks)</span><br>
+        <em>"The overuse of antibiotics is one of the most serious global health challenges facing the modern world."</em>
+        <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+        <div class="ans-box" style="direction:rtl;text-align:right;font-family:Arial,sans-serif;">إن الإفراط في استخدام المضادات الحيوية يُعدّ من أشد التحديات الصحية العالمية خطورة في العصر الحديث.</div>
+      </div>
+      <div class="qblock">
+        <strong>Q39.</strong> Translate the following sentence into English: <span class="marks-right">(08 marks)</span><br>
+        <span style="font-family:Arial,sans-serif;direction:rtl;display:inline-block;text-align:right;">تُسهم اللقاحات في حماية الإنسان من الأمراض الفيروسية الخطيرة كالإنفلونزا والحصبة.</span>
+        <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+        <div class="ans-box">Vaccines help protect humans from serious viral diseases such as influenza and measles.</div>
+      </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">X– Composition: <span class="marks-right">(50 marks)</span></div>
+      <div class="qblock">
+        <strong>Q40.</strong> Write a composition of <strong>no less than 80 words</strong> on the following topic:<br><br>
+        <em><strong>"Write about the ways in which people can protect themselves from bacterial and viral infections."</strong></em>
+        <button class="btn-ans" onclick="T(this)">&#9654; Show Answer (Model Answer)</button>
+        <div class="ans-box">Bacterial and viral infections pose a constant threat to human health. However, there are many effective ways to protect ourselves from these invisible dangers.<br><br>
+First and foremost, vaccination is the most important preventive measure. Vaccines teach the immune system to recognise and fight specific germs without causing the disease. Secondly, maintaining good personal hygiene is essential. Washing hands regularly with soap and water, especially before meals and after using the toilet, can significantly reduce the risk of infection. Thirdly, following a healthy lifestyle — eating nutritious food, exercising regularly, and getting enough sleep — strengthens the immune system.<br><br>
+In addition, it is vital to use antibiotics responsibly. They should only be taken when prescribed by a doctor, and the full course must always be completed. In conclusion, a combination of vaccination, good hygiene, a healthy lifestyle, and responsible use of medication is the best defence against infections.</div>
+        <div style="margin-top:6px;"><div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div></div>
+      </div></div>
+  </div>
+  <div class="page-footer">END OF PRACTICE TEST &nbsp;|&nbsp; Model 11 &nbsp;|&nbsp; Good Luck</div>
+</div>
+<script>
+function T(btn) {
+  var box = btn.nextElementSibling;
+  if (box.classList.contains('visible')) {
+    box.classList.remove('visible');
+    btn.innerHTML = '&#9654; Show Answer';
+  } else {
+    box.classList.add('visible');
+    btn.innerHTML = '&#9660; Hide Answer';
+  }
+}
+</script>
+</body>
+</html>

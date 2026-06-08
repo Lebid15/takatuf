@@ -1,0 +1,448 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=920">
+<title>اختبار تدريبي – إنجليزية ثالثة ثانوي – نموذج 14</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 13px;
+  background: #ddd;
+  padding: 20px;
+}
+.page {
+  width: 880px;
+  margin: 0 auto 28px auto;
+  background: #fff;
+  border: 2px solid #000;
+}
+.hdr-top { display: flex; border-bottom: 1px solid #000; font-size: 12px; }
+.hdr-right { width: 170px; padding: 4px 6px; border-left: 1px solid #000;
+  line-height: 1.8; direction: rtl; }
+.hdr-center { flex: 1; text-align: center; padding: 4px; border-left: 1px solid #000; }
+.hdr-center .exam-title { font-weight: bold; font-size: 13.5px; }
+.hdr-center .subject-line { font-size: 14px; font-weight: bold; margin-top: 4px; text-decoration: underline; }
+.hdr-left { width: 130px; padding: 4px 6px; line-height: 1.8; }
+.hdr-page { text-align: center; font-size: 12px; padding: 2px; border-bottom: 1px solid #000; direction: rtl; }
+.hdr-note { text-align: center; font-size: 11.5px; font-style: italic; padding: 2px 6px; border-bottom: 2px solid #000; direction: rtl; }
+.two-col { display: flex; align-items: stretch; }
+.col-L { flex: 1; border-right: 1px solid #000; min-width: 0; }
+.col-R { flex: 1; min-width: 0; }
+.sec-title { font-weight: bold; text-decoration: underline; padding: 5px 7px 3px 7px; font-size: 13px; line-height: 1.4; }
+.task-title { font-weight: bold; text-decoration: underline; padding: 4px 7px 2px 7px; font-size: 12.5px; margin-top: 2px; }
+.marks-right { float: right; text-decoration: none; font-weight: bold; }
+.reading-text { padding: 5px 8px; line-height: 1.6; text-align: justify; font-size: 12.5px; }
+.qblock { padding: 3px 8px 1px 8px; line-height: 1.5; font-size: 12.5px; }
+.opts { padding: 1px 4px 2px 18px; font-size: 12px; line-height: 1.5; }
+.btn-ans { display: inline-block; margin: 3px 0 4px 18px; padding: 2px 10px;
+  background: #1a5276; color: #fff; border: none; cursor: pointer;
+  font-size: 11px; font-family: "Times New Roman", Times, serif; user-select: none; }
+.btn-ans:hover { background: #154360; }
+.ans-box { display: none; background: #eaf4fb; border-left: 3px solid #1a5276;
+  padding: 4px 8px; margin: 0 8px 5px 18px; font-size: 12px; line-height: 1.55; }
+.ans-box.visible { display: block; }
+.sec-sep { border-top: 1px solid #000; margin: 4px 0 0 0; }
+.wline { border-bottom: 1px solid #aaa; height: 21px; margin: 0 8px; }
+.page-footer { text-align: center; font-weight: bold; font-size: 12px;
+  padding: 4px; border-top: 2px solid #000; letter-spacing: 1px; }
+
+.nav-bar {
+  width: 880px;
+  margin: 0 auto 12px auto;
+  background: #1a5276;
+  padding: 7px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  direction: rtl;
+}
+.nav-label {
+  color: #aed6f1;
+  font-size: 12px;
+  margin-left: 8px;
+  white-space: nowrap;
+  font-family: Arial, sans-serif;
+}
+.nav-bar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 3px 9px;
+  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.12);
+  font-family: "Times New Roman", Times, serif;
+}
+.nav-bar a:hover { background: rgba(255,255,255,0.28); }
+.nav-bar a.active {
+  background: #f39c12;
+  color: #000;
+  border-color: #d68910;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <span class="nav-label">التنقل بين النماذج:</span>
+  <a href="exam1.html">Model 01</a> <a href="exam2.html">Model 02</a> <a href="exam3.html">Model 03</a> <a href="exam4.html">Model 04</a> <a href="exam5.html">Model 05</a> <a href="exam6.html">Model 06</a> <a href="exam7.html">Model 07</a> <a href="exam8.html">Model 08</a> <a href="exam9.html">Model 09</a> <a href="exam10.html">Model 10</a> <a href="exam11.html">Model 11</a> <a href="exam12.html">Model 12</a> <a href="exam13.html">Model 13</a> <a href="exam14.html" class="active">Model 14</a>
+</div>
+<div class="page">
+    <div class="hdr-top">
+    <div class="hdr-left">المدة: ساعتان<br>الدرجة: 300/ ثلاثة</div>
+    <div class="hdr-center">
+      <div class="exam-title">اختبار تدريبي – مادة اللغة الإنجليزية – السنة الثالثة ثانوي</div>
+      <div style="font-size:12px;">(الفرع العلمي)</div>
+      <div class="subject-line">اللغة الإنجليزية</div>
+    </div>
+    <div class="hdr-right">
+      الاسم: ________________<br>
+      الرقم: ________________<br>
+      المادة: _______________<br>
+      الدرجة: ______________
+    </div>
+  </div>
+  <div class="hdr-page">(الصفحة الأولى)</div>
+  <div class="hdr-note">(انتبه إلى رقم السؤال بحيث يتطابق مع رقم الجواب ولا تلق صفحة السؤال إلى ورقة الإجابة)</div>
+  <div class="two-col">
+    <div class="col-L">
+      <div class="sec-title">I– Read the following text then do the tasks below:</div>
+      <div class="reading-text">&nbsp;&nbsp;&nbsp;<strong>Culture Shock: Diana's Diary</strong><br><br>
+&nbsp;&nbsp;&nbsp;<em>Diana, a student from Aleppo, Syria, is studying in Montreal, Canada. The following passages are taken from her diary.</em><br><br>
+&nbsp;&nbsp;&nbsp;Moving to a country with a very different climate could be a challenge! In Syria we have a Mediterranean weather, with mild, rainy winters. Here in Canada, winter is very cold and snowy. The temperature average is between single digits and -20°C. I was very worried about the cold. But it wasn't a problem because most buildings here are well heated. Actually this city knows how to stay warm. When the weather gets too chilly, I head to the Underground City — a series of interconnected tunnels beneath Montreal which run for over 32 km. The tunnels connect shopping malls, universities, banks and seven metro stations.
+<br><br>&nbsp;&nbsp;&nbsp;I miss my mom's cooking a lot. The food here is delicious but it's not really the same. Foods typically considered national dishes of Canada include poutine, Montreal bagels and butter tarts. My most amazing experience was Sugar Time, usually at the end of March. It is the season organised in 'la cabane à sucre', a place where maple sap is boiled to produce maple syrup. It is heated above 100 degrees, and the drops are placed on the snow, becoming like a candy on a stick!
+<br><br>&nbsp;&nbsp;&nbsp;My overall experience during these six months taught me to avoid quick judgements and try to understand the point of view of people in another culture. I'm staying with a Quebecois family who are teaching me a lot about Montreal. They told me not to make quick decisions, and not to leave right away even if I wanted to. They were right! People don't take the time to adapt, so they miss out on wonderful experiences.</div>
+      <div class="task-title">Answer the following questions: <span class="marks-right">(18 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q1.</strong> What was Diana's biggest concern when she arrived in Montreal? <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">She was very worried about the cold weather, as Canadian winters are much colder than Syrian ones.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q2.</strong> What is the Underground City and how does it help people in Montreal? <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">It is a series of interconnected tunnels beneath Montreal, connecting shopping malls, universities, banks and metro stations, allowing people to stay warm during cold weather.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q3.</strong> What is the most important lesson Diana learned from her experience abroad? <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">She learned to avoid quick judgements and to try to understand the point of view of people in another culture, and not to leave before giving herself time to adapt.</div>
+    </div>
+      <div class="task-title">Find words in the text which mean the following: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q4.</strong> relating to the weather and climate of the Mediterranean region (mild and rainy winters) <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>Mediterranean</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q5.</strong> connected to each other in a network or series <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>interconnected</strong></div>
+    </div>
+      <div class="task-title">Rewrite the sentences about the text to correct the information: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q6.</strong> Diana left Montreal as soon as she felt uncomfortable there. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Diana did <u>not</u> leave; her Quebecois family told her <u>not to leave right away</u> and she followed their advice.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q7.</strong> Canadian winters are similar to Syrian winters in terms of temperature. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Canadian winters are <u>very different</u> from Syrian ones; Canada has temperatures as low as -20°C, while Syria has mild, rainy winters.</div>
+    </div></div>
+    <div class="col-R">
+      <div class="sec-title">II– Read the following text then do the tasks below:</div>
+      <div class="reading-text">&nbsp;&nbsp;&nbsp;Culture shock is the feeling of confusion, discomfort and disorientation that people may experience when they move to a new country or cultural environment. It is a natural response to the unfamiliar customs, values, language, and behaviours of a different society. Almost everyone who travels or moves abroad experiences some degree of culture shock.
+<br><br>&nbsp;&nbsp;&nbsp;Culture shock typically progresses through four stages. The first is the 'honeymoon stage', during which everything seems exciting and new. The second is the 'frustration stage', when the differences between the new culture and one's own become difficult to deal with. The third is the 'adjustment stage', when the person begins to understand and adapt to the new culture. The fourth and final stage is the 'acceptance stage', when the person feels comfortable and at home in the new environment.
+<br><br>&nbsp;&nbsp;&nbsp;There are several strategies that can help people overcome culture shock. Learning the local language, even at a basic level, can significantly reduce the feeling of isolation. Building relationships with local people helps one to understand the culture from the inside. Maintaining contact with family and friends back home also provides emotional support.
+<br><br>&nbsp;&nbsp;&nbsp;It is important to remember that culture shock is a temporary experience. With patience, an open mind, and a willingness to learn, most people successfully adapt to their new environment and even come to appreciate the richness of a different culture.</div>
+      <div class="task-title">Choose the correct answer a, b, c or d: <span class="marks-right">(24 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q8.</strong> During the 'honeymoon stage' of culture shock, a person feels: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- frustrated and confused &nbsp; b- comfortable and settled &nbsp; c- excited and interested &nbsp; d- isolated and lonely</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- excited and interested</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q9.</strong> The word 'disorientation' in paragraph 1 means: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- excitement &nbsp; b- feeling lost and confused &nbsp; c- happiness &nbsp; d- curiosity</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- feeling lost and confused</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q10.</strong> Which strategy does the text NOT mention to help overcome culture shock? <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- learning the local language &nbsp; b- building relationships with locals &nbsp; c- avoiding all foreign customs &nbsp; d- keeping in touch with family</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- avoiding all foreign customs</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q11.</strong> According to the text, culture shock is: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- permanent and serious &nbsp; b- rare and unusual &nbsp; c- temporary and manageable &nbsp; d- only experienced by students</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- temporary and manageable</strong></div>
+    </div>
+      <div class="task-title">Complete the following sentences with information from the text: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q12.</strong> According to the text, people begin to understand and adapt to a new culture during the … <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">…adjustment stage (third stage of culture shock).</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q13.</strong> According to the text, learning the local language helps reduce the feeling of … <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">…isolation.</div>
+    </div></div>
+  </div>
+  <div class="page-footer">الصفحة الأولى &nbsp;←&nbsp; تابع في الصفحة الثانية</div>
+</div>
+<div class="page">
+  <div class="hdr-page">(الصفحة الثانية)</div>
+  <div class="hdr-note">(انتبه إلى رقم السؤال بحيث يتطابق مع رقم الجواب ولا تلق صفحة السؤال إلى ورقة الإجابة)</div>
+  <div class="two-col">
+    <div class="col-L">
+      <div class="sec-title">III– Choose the correct answer a, b, c, or d: <span class="marks-right">(54 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q14.</strong> You ______ switch off your mobile phone during the exam — it is strictly forbidden. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- don't have to &nbsp; b- mustn't &nbsp; c- shouldn't &nbsp; d- needn't</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- mustn't</strong> (prohibition)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q15.</strong> She ______ bring a dictionary to the exam if she wants — it's allowed. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- must &nbsp; b- has to &nbsp; c- can &nbsp; d- should</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- can</strong> (permission)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q16.</strong> I ______ have called her before coming. She wasn't home. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- should &nbsp; b- must &nbsp; c- could &nbsp; d- would</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>a- should</strong> (should have + past participle = criticism/regret about past)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q17.</strong> She ______ speak three languages fluently by the time she was eighteen. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- can &nbsp; b- could &nbsp; c- must &nbsp; d- should</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- could</strong> (past ability)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q18.</strong> In Canada, you ______ drive on the right side of the road — it is the law. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- don't have to &nbsp; b- shouldn't &nbsp; c- have to &nbsp; d- might</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- have to</strong> (obligation/necessity)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q19.</strong> The idiom 'to lose face' means: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- to get injured &nbsp; b- to feel embarrassed or lose respect &nbsp; c- to forget something &nbsp; d- to be very happy</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- to feel embarrassed or lose respect</strong> (culture idiom)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q20.</strong> Which sentence uses the modal 'must' to express logical deduction? <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- You must wear a seatbelt in the car. &nbsp; b- She must be tired after her long journey. &nbsp; c- Students must arrive on time. &nbsp; d- You must not smoke here.</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- She must be tired after her long journey.</strong> (deduction, not obligation)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q21.</strong> The expression 'to have a wide face' means: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- to have many friends &nbsp; b- to be famous &nbsp; c- to be respected/popular &nbsp; d- to be dishonest</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- to be respected/popular</strong> (culture idiom from Unit 10)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q22.</strong> Hardly ______ he arrived at the airport when his flight was cancelled. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- had &nbsp; b- has &nbsp; c- did &nbsp; d- does</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>a- had</strong> (inversion after 'hardly': Hardly had he arrived when…)</div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">IV– Complete the following sentences / paragraph by filling in each gap with one functional word: <span class="marks-right">(18 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q23.</strong> When Diana arrived in Canada, she was worried about the cold ______ she had not experienced such low temperatures before. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>because / since</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q24.</strong> Diana stayed ______ her Quebecois family and learned a lot about Montreal from them. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>with</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q25.</strong> You ______ make quick judgements about other cultures — try to understand them first. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>shouldn't / mustn't</strong></div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">V– Write suitable questions about the underlined words: <span class="marks-right">(24 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q26.</strong> Diana missed <u>her mom's cooking</u> the most when she was in Montreal. <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">What did Diana miss the most when she was in Montreal?</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q27.</strong> The Underground City tunnels run for <u>over 32 km</u> beneath Montreal. <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">How long do the Underground City tunnels run beneath Montreal?</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q28.</strong> Diana learned to avoid quick judgements <u>after six months</u> in Canada. <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">When / After how long did Diana learn to avoid quick judgements?</div>
+    </div></div>
+    <div class="col-R">
+      <div class="sec-title">VI– Rewrite the following sentences as required in brackets: <span class="marks-right">(32 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q29.</strong> "You should try to understand the culture before judging it," the family told Diana. &nbsp; [Reported Speech] <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">The family told Diana that she should try to understand the culture before judging it.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q30.</strong> People do not take enough time to adapt to new cultures. &nbsp; [Use: If only…]', <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">If only people took enough time to adapt to new cultures.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q31.</strong> The weather was so cold that Diana could not go outside without her coat. &nbsp; [too…to] <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">The weather was too cold for Diana to go outside without her coat.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q32.</strong> "Have you ever experienced culture shock?" the interviewer asked her. &nbsp; [Reported Question] <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">The interviewer asked her if / whether she had ever experienced culture shock.</div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">VII– Correct the verbs in brackets: <span class="marks-right">(18 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q33.</strong> She (live) _______ in Montreal for six months before she finally felt at home. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>had been living</strong> (Past Perfect Continuous)</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q34.</strong> The local family (teach) _______ her many things about Canadian culture since she arrived. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>has been teaching</strong> (Present Perfect Continuous)</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q35.</strong> I wish I (not leave) _______ my home country without learning the local language first. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>had not left</strong> (wish + past perfect = regret)</div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">VIII– Complete the following sentences using clauses: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q36.</strong> Although moving to a new country can be challenging, _________________________. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Sample: <em>…it is also an incredible opportunity to learn about different cultures and broaden one's horizons.</em></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q37.</strong> If more people travelled and experienced other cultures, _________________________. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Sample: <em>…there would be more understanding and tolerance between nations.</em></div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">IX– Translation:</div>
+      <div class="qblock">
+        <strong>Q38.</strong> Translate the following sentence into Arabic: <span class="marks-right">(06 marks)</span><br>
+        <em>"Living abroad teaches us to appreciate both the similarities and the differences between cultures."</em>
+        <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+        <div class="ans-box" style="direction:rtl;text-align:right;font-family:Arial,sans-serif;">يُعلّمنا العيش في الخارج أن نُقدّر أوجه التشابه والاختلاف بين الثقافات المختلفة.</div>
+      </div>
+      <div class="qblock">
+        <strong>Q39.</strong> Translate the following sentence into English: <span class="marks-right">(08 marks)</span><br>
+        <span style="font-family:Arial,sans-serif;direction:rtl;display:inline-block;text-align:right;">تُنمّي تجربة العيش في ثقافة مختلفة قدرة الإنسان على التأقلم والتسامح مع الآخر.</span>
+        <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+        <div class="ans-box">The experience of living in a different culture develops a person's ability to adapt and be tolerant of others.</div>
+      </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">X– Composition: <span class="marks-right">(50 marks)</span></div>
+      <div class="qblock">
+        <strong>Q40.</strong> Write a composition of <strong>no less than 80 words</strong> on the following topic:<br><br>
+        <em><strong>"Write about how people can adapt to living in a new country or culture and what benefits they can gain from this experience."</strong></em>
+        <button class="btn-ans" onclick="T(this)">&#9654; Show Answer (Model Answer)</button>
+        <div class="ans-box">Moving to a new country can be one of the most exciting — and challenging — experiences in a person's life. Culture shock is a natural part of this journey, but with the right attitude, anyone can adapt successfully and benefit greatly from the experience.<br><br>
+The first step is to be open-minded and patient. It takes time to understand a new culture, and making quick judgements can lead to misunderstandings. Learning the local language, even at a basic level, is also very helpful as it allows better communication and helps build friendships with local people. Exploring local traditions, trying new foods, and participating in community activities are wonderful ways to understand and appreciate the new culture.<br><br>
+The benefits of living abroad are enormous. People develop greater independence, self-confidence, and problem-solving skills. They also gain a broader perspective on the world and become more tolerant and understanding of people who are different from themselves. In conclusion, while adapting to a new culture requires effort and patience, the personal growth and enrichment that result from the experience are truly invaluable.</div>
+        <div style="margin-top:6px;"><div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div></div>
+      </div></div>
+  </div>
+  <div class="page-footer">END OF PRACTICE TEST &nbsp;|&nbsp; Model 14 &nbsp;|&nbsp; Good Luck</div>
+</div>
+<script>
+function T(btn) {
+  var box = btn.nextElementSibling;
+  if (box.classList.contains('visible')) {
+    box.classList.remove('visible');
+    btn.innerHTML = '&#9654; Show Answer';
+  } else {
+    box.classList.add('visible');
+    btn.innerHTML = '&#9660; Hide Answer';
+  }
+}
+</script>
+</body>
+</html>

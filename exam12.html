@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=920">
+<title>اختبار تدريبي – إنجليزية ثالثة ثانوي – نموذج 12</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 13px;
+  background: #ddd;
+  padding: 20px;
+}
+.page {
+  width: 880px;
+  margin: 0 auto 28px auto;
+  background: #fff;
+  border: 2px solid #000;
+}
+.hdr-top { display: flex; border-bottom: 1px solid #000; font-size: 12px; }
+.hdr-right { width: 170px; padding: 4px 6px; border-left: 1px solid #000;
+  line-height: 1.8; direction: rtl; }
+.hdr-center { flex: 1; text-align: center; padding: 4px; border-left: 1px solid #000; }
+.hdr-center .exam-title { font-weight: bold; font-size: 13.5px; }
+.hdr-center .subject-line { font-size: 14px; font-weight: bold; margin-top: 4px; text-decoration: underline; }
+.hdr-left { width: 130px; padding: 4px 6px; line-height: 1.8; }
+.hdr-page { text-align: center; font-size: 12px; padding: 2px; border-bottom: 1px solid #000; direction: rtl; }
+.hdr-note { text-align: center; font-size: 11.5px; font-style: italic; padding: 2px 6px; border-bottom: 2px solid #000; direction: rtl; }
+.two-col { display: flex; align-items: stretch; }
+.col-L { flex: 1; border-right: 1px solid #000; min-width: 0; }
+.col-R { flex: 1; min-width: 0; }
+.sec-title { font-weight: bold; text-decoration: underline; padding: 5px 7px 3px 7px; font-size: 13px; line-height: 1.4; }
+.task-title { font-weight: bold; text-decoration: underline; padding: 4px 7px 2px 7px; font-size: 12.5px; margin-top: 2px; }
+.marks-right { float: right; text-decoration: none; font-weight: bold; }
+.reading-text { padding: 5px 8px; line-height: 1.6; text-align: justify; font-size: 12.5px; }
+.qblock { padding: 3px 8px 1px 8px; line-height: 1.5; font-size: 12.5px; }
+.opts { padding: 1px 4px 2px 18px; font-size: 12px; line-height: 1.5; }
+.btn-ans { display: inline-block; margin: 3px 0 4px 18px; padding: 2px 10px;
+  background: #1a5276; color: #fff; border: none; cursor: pointer;
+  font-size: 11px; font-family: "Times New Roman", Times, serif; user-select: none; }
+.btn-ans:hover { background: #154360; }
+.ans-box { display: none; background: #eaf4fb; border-left: 3px solid #1a5276;
+  padding: 4px 8px; margin: 0 8px 5px 18px; font-size: 12px; line-height: 1.55; }
+.ans-box.visible { display: block; }
+.sec-sep { border-top: 1px solid #000; margin: 4px 0 0 0; }
+.wline { border-bottom: 1px solid #aaa; height: 21px; margin: 0 8px; }
+.page-footer { text-align: center; font-weight: bold; font-size: 12px;
+  padding: 4px; border-top: 2px solid #000; letter-spacing: 1px; }
+
+.nav-bar {
+  width: 880px;
+  margin: 0 auto 12px auto;
+  background: #1a5276;
+  padding: 7px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  direction: rtl;
+}
+.nav-label {
+  color: #aed6f1;
+  font-size: 12px;
+  margin-left: 8px;
+  white-space: nowrap;
+  font-family: Arial, sans-serif;
+}
+.nav-bar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 3px 9px;
+  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.12);
+  font-family: "Times New Roman", Times, serif;
+}
+.nav-bar a:hover { background: rgba(255,255,255,0.28); }
+.nav-bar a.active {
+  background: #f39c12;
+  color: #000;
+  border-color: #d68910;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <span class="nav-label">التنقل بين النماذج:</span>
+  <a href="exam1.html">Model 01</a> <a href="exam2.html">Model 02</a> <a href="exam3.html">Model 03</a> <a href="exam4.html">Model 04</a> <a href="exam5.html">Model 05</a> <a href="exam6.html">Model 06</a> <a href="exam7.html">Model 07</a> <a href="exam8.html">Model 08</a> <a href="exam9.html">Model 09</a> <a href="exam10.html">Model 10</a> <a href="exam11.html">Model 11</a> <a href="exam12.html" class="active">Model 12</a> <a href="exam13.html">Model 13</a> <a href="exam14.html">Model 14</a>
+</div>
+<div class="page">
+    <div class="hdr-top">
+    <div class="hdr-left">المدة: ساعتان<br>الدرجة: 300/ ثلاثة</div>
+    <div class="hdr-center">
+      <div class="exam-title">اختبار تدريبي – مادة اللغة الإنجليزية – السنة الثالثة ثانوي</div>
+      <div style="font-size:12px;">(الفرع العلمي)</div>
+      <div class="subject-line">اللغة الإنجليزية</div>
+    </div>
+    <div class="hdr-right">
+      الاسم: ________________<br>
+      الرقم: ________________<br>
+      المادة: _______________<br>
+      الدرجة: ______________
+    </div>
+  </div>
+  <div class="hdr-page">(الصفحة الأولى)</div>
+  <div class="hdr-note">(انتبه إلى رقم السؤال بحيث يتطابق مع رقم الجواب ولا تلق صفحة السؤال إلى ورقة الإجابة)</div>
+  <div class="two-col">
+    <div class="col-L">
+      <div class="sec-title">I– Read the following text then do the tasks below:</div>
+      <div class="reading-text">&nbsp;&nbsp;&nbsp;<strong>The Immune System</strong><br><br>
+&nbsp;&nbsp;&nbsp;The immune system has a vital role since it protects your body from harmful substances, germs and cell changes that could make you ill. As long as it is working properly, you don't notice that it's there. But if it stops working properly — because it's weak or cannot fight particularly aggressive germs — you get ill. Germs that your body has never encountered before are also likely to make you ill. Some germs will only make you ill the first time you come into contact with them.
+<br><br>&nbsp;&nbsp;&nbsp;The immune system has three main tasks: to fight harmful things that enter our body from the outside or harmful changes that occur inside our body; to eliminate bacteria, viruses, parasites and fungi; and to recognise and neutralise harmful substances from the environment.
+<br><br>&nbsp;&nbsp;&nbsp;The immune system can be activated by a lot of different things that the body doesn't recognise as its own. These are called antigens. Examples of antigens include the proteins on the surfaces of bacteria and viruses. When these antigens attach to special receptors on the immune cells, a whole series of processes are triggered in the body.
+<br><br>&nbsp;&nbsp;&nbsp;Once the body has come into contact with a disease-causing germ for the first time, it usually stores information about the germ and how to fight it. Then, if it comes into contact with the germ again, it recognises the germ straight away and can start fighting it more quickly. This is the principle behind vaccination — the vaccine introduces a harmless form of the germ into the body, teaching the immune system to recognise it without causing illness.</div>
+      <div class="task-title">Answer the following questions: <span class="marks-right">(18 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q1.</strong> What are the three main tasks of the immune system? <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">1) To fight harmful things from outside or changes inside the body. 2) To eliminate bacteria, viruses, parasites and fungi. 3) To recognise and neutralise harmful substances from the environment.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q2.</strong> What are antigens and why are they important? <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Antigens are things the body does not recognise as its own (e.g. proteins on bacteria). They activate the immune system by triggering a series of defensive processes.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q3.</strong> How does vaccination work according to the text? <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">A vaccine introduces a harmless form of a germ into the body, teaching the immune system to recognise it without causing the disease.</div>
+    </div>
+      <div class="task-title">Find words in the text which mean the following: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q4.</strong> behaving in an angry, threatening, or forceful way <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>aggressive</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q5.</strong> nerve endings that receive information and cause the body to react <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>receptors</strong></div>
+    </div>
+      <div class="task-title">Rewrite the sentences about the text to correct the information: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q6.</strong> The immune system only protects the body from bacteria. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">The immune system protects the body from <u>harmful substances, germs, bacteria, viruses, parasites, fungi, and harmful cell changes</u>.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q7.</strong> The body always gets ill every time it encounters the same germ. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">The body gets ill the <u>first</u> time it encounters a germ; after that, it recognises the germ quickly and fights it more effectively.</div>
+    </div></div>
+    <div class="col-R">
+      <div class="sec-title">II– Read the following text then do the tasks below:</div>
+      <div class="reading-text">&nbsp;&nbsp;&nbsp;An average person is estimated to contain trillions of human cells. These cells include neurons (nerve cells) and glands. The human body is covered by the skin, which is a flexible covering that protects the body and keeps water and harmful germs out. The body's strong internal framework — the skeleton — is made of 206 bones connected at joints, such as in the legs. These joints help us to move. The backbone supports the head and limbs and protects the spinal cord.
+<br><br>&nbsp;&nbsp;&nbsp;Between the skeleton and the skin, there are about 500 muscles. Nerves spread from the brain to all parts of the body, carrying signals in the form of tiny electrical impulses. The sense organs — eyes, nose, ears, tongue and skin — pass messages to the brain through nerves.
+<br><br>&nbsp;&nbsp;&nbsp;The brain controls every activity of the body. It receives information from the senses and sends instructions to the muscles. The brain also controls our thoughts, feelings, and memories. It is divided into three main parts: the cerebrum, the cerebellum, and the brain stem, each responsible for different functions.
+<br><br>&nbsp;&nbsp;&nbsp;A healthy body requires proper nutrition, regular exercise, and sufficient rest. The food we eat provides the energy needed for all body functions. Vitamins and minerals support the immune system and help the body grow and repair itself.</div>
+      <div class="task-title">Choose the correct answer a, b, c or d: <span class="marks-right">(24 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q8.</strong> How many bones does the human skeleton contain? <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- 500 &nbsp; b- 260 &nbsp; c- 206 &nbsp; d- 26</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- 206</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q9.</strong> The nerves carry signals from the brain to the body in the form of: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- sound waves &nbsp; b- tiny electrical impulses &nbsp; c- chemical hormones &nbsp; d- blood pressure</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- tiny electrical impulses</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q10.</strong> The word 'impulses' in paragraph 2 means: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- muscles &nbsp; b- bones &nbsp; c- signals/pulses of energy &nbsp; d- cells</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- signals/pulses of energy</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q11.</strong> According to the text, the backbone has two functions: it supports the head and limbs and it: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- produces blood cells &nbsp; b- protects the spinal cord &nbsp; c- controls muscles &nbsp; d- connects bones</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- protects the spinal cord</strong></div>
+    </div>
+      <div class="task-title">Complete the following sentences with information from the text: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q12.</strong> According to the text, the sense organs pass messages to … <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">…the brain through nerves.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q13.</strong> According to the text, the food we eat provides the body with … <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">…energy needed for all body functions.</div>
+    </div></div>
+  </div>
+  <div class="page-footer">الصفحة الأولى &nbsp;←&nbsp; تابع في الصفحة الثانية</div>
+</div>
+<div class="page">
+  <div class="hdr-page">(الصفحة الثانية)</div>
+  <div class="hdr-note">(انتبه إلى رقم السؤال بحيث يتطابق مع رقم الجواب ولا تلق صفحة السؤال إلى ورقة الإجابة)</div>
+  <div class="two-col">
+    <div class="col-L">
+      <div class="sec-title">III– Choose the correct answer a, b, c, or d: <span class="marks-right">(54 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q14.</strong> I wish I ______ harder for the exam. Now it's too late. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- study &nbsp; b- studied &nbsp; c- had studied &nbsp; d- have studied</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- had studied</strong> (wish + past perfect = regret about the past)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q15.</strong> She wishes she ______ how to play the piano. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- knows &nbsp; b- knew &nbsp; c- had known &nbsp; d- will know</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- knew</strong> (wish + past simple = wish about present/future)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q16.</strong> The expression 'a pain in the neck' means: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- a physical injury &nbsp; b- something very annoying or troublesome &nbsp; c- a good friend &nbsp; d- a minor problem</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- something very annoying or troublesome</strong> (body idiom)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q17.</strong> His sudden illness ______ everyone because he had seemed perfectly healthy. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- pain in the neck &nbsp; b- jumped out of their skin &nbsp; c- cost an arm and a leg &nbsp; d- follow your heart</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- jumped out of their skin</strong> (idiom = shocked/startled)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q18.</strong> The underlined syllable that carries the primary stress in the word 'unbelievable' is: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- un &nbsp; b- be &nbsp; c- liev &nbsp; d- able</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- liev</strong> /ˌʌn.bɪˈliː.və.bəl/ — stress on the third syllable</div>
+    </div>
+    <div class="qblock">
+      <strong>Q19.</strong> She hasn't eaten anything since this morning. She ______ be very hungry by now. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- might &nbsp; b- should &nbsp; c- must &nbsp; d- will</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- must</strong> (logical deduction about the present)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q20.</strong> If only I ______ a doctor — I could help so many people. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- am &nbsp; b- were &nbsp; c- had been &nbsp; d- will be</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- were</strong> (If only + past simple = wish about present)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q21.</strong> The plural form of 'bacterium' is: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- bacteriums &nbsp; b- bacterias &nbsp; c- bacteria &nbsp; d- bacteries</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- bacteria</strong> (irregular Latin plural)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q22.</strong> The word that has a silent 'gh' is: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- ghost &nbsp; b- fight &nbsp; c- gather &nbsp; d- together</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- fight</strong> /faɪt/ — the 'gh' is silent</div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">IV– Complete the following sentences / paragraph by filling in each gap with one functional word: <span class="marks-right">(18 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q23.</strong> The immune system stores information about a germ after the body _______ it for the first time. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>encounters</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q24.</strong> The backbone supports the head and limbs _______ protecting the spinal cord. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>while / as well as</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q25.</strong> She wishes she _______ more attention to her health when she was young. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>had paid</strong></div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">V– Write suitable questions about the underlined words: <span class="marks-right">(24 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q26.</strong> The human skeleton is made of <u>206 bones</u>. <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">How many bones is the human skeleton made of?</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q27.</strong> <u>The skin</u> protects the body and keeps harmful germs out. <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">What protects the body and keeps harmful germs out?</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q28.</strong> The immune system fights harmful germs <u>by producing antibodies</u>. <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">How does the immune system fight harmful germs?</div>
+    </div></div>
+    <div class="col-R">
+      <div class="sec-title">VI– Rewrite the following sentences as required in brackets: <span class="marks-right">(32 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q29.</strong> "Your immune system is strong enough to fight this infection," the doctor told him. &nbsp; [Reported Speech] <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">The doctor told him that his immune system was strong enough to fight that infection.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q30.</strong> Scientists have discovered a new vaccine against the virus. &nbsp; [Passive Voice] <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">A new vaccine against the virus has been discovered (by scientists).</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q31.</strong> The medicine was so bitter that the child refused to take it. &nbsp; [too…to] <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">The medicine was too bitter for the child to take.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q32.</strong> I didn't exercise regularly when I was young. (Use: I wish…) <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">I wish I had exercised regularly when I was young.</div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">VII– Correct the verbs in brackets: <span class="marks-right">(18 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q33.</strong> She (exercise) _______ for an hour when she suddenly felt pain in her knee. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>had been exercising</strong> (Past Perfect Continuous)</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q34.</strong> The new vaccine (administer) _______ to thousands of patients next week. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>will be administered</strong> (Future Passive)</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q35.</strong> If I (know) _______ about the medicine's side effects, I would not have taken it. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>had known</strong> (Conditional Type 3)</div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">VIII– Complete the following sentences using clauses: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q36.</strong> Although the human body has a powerful immune system, _________________________. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Sample: <em>…it can sometimes be overwhelmed by aggressive germs and diseases.</em></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q37.</strong> If people paid more attention to healthy eating and regular exercise, _________________________. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Sample: <em>…they would have stronger immune systems and fall ill less frequently.</em></div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">IX– Translation:</div>
+      <div class="qblock">
+        <strong>Q38.</strong> Translate the following sentence into Arabic: <span class="marks-right">(06 marks)</span><br>
+        <em>"The human body is a remarkably complex machine that scientists are still working to fully understand."</em>
+        <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+        <div class="ans-box" style="direction:rtl;text-align:right;font-family:Arial,sans-serif;">جسم الإنسان آلة بالغة التعقيد لا يزال العلماء يسعون إلى فهمها بشكل كامل.</div>
+      </div>
+      <div class="qblock">
+        <strong>Q39.</strong> Translate the following sentence into English: <span class="marks-right">(08 marks)</span><br>
+        <span style="font-family:Arial,sans-serif;direction:rtl;display:inline-block;text-align:right;">يعمل الجهاز المناعي كحارس أمين للجسم، إذ يتعرّف على الجراثيم ويقاومها قبل أن تتسبب في الأمراض.</span>
+        <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+        <div class="ans-box">The immune system works as a faithful guardian of the body; it recognises germs and fights them before they cause disease.</div>
+      </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">X– Composition: <span class="marks-right">(50 marks)</span></div>
+      <div class="qblock">
+        <strong>Q40.</strong> Write a composition of <strong>no less than 80 words</strong> on the following topic:<br><br>
+        <em><strong>"Write about how healthy food and exercise affect our physical and mental health."</strong></em>
+        <button class="btn-ans" onclick="T(this)">&#9654; Show Answer (Model Answer)</button>
+        <div class="ans-box">Our physical and mental health are closely linked to the lifestyle choices we make every day. Two of the most important factors are healthy eating and regular exercise.<br><br>
+A balanced diet provides the body with the energy, vitamins, and minerals it needs to function properly. Foods rich in vitamins C and D strengthen the immune system, while protein-rich foods help repair tissues and build muscles. Avoiding excessive sugar, salt, and processed foods reduces the risk of heart disease, diabetes, and obesity.<br><br>
+Regular physical exercise also plays a vital role in maintaining good health. It strengthens the heart, improves blood circulation, and helps maintain a healthy weight. Moreover, exercise has proven mental health benefits: it reduces stress, anxiety, and depression by releasing endorphins — chemicals in the brain that promote feelings of happiness.<br><br>
+In conclusion, a healthy diet combined with regular exercise is the best investment we can make in our long-term well-being. Good health is truly our most valuable asset.</div>
+        <div style="margin-top:6px;"><div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div></div>
+      </div></div>
+  </div>
+  <div class="page-footer">END OF PRACTICE TEST &nbsp;|&nbsp; Model 12 &nbsp;|&nbsp; Good Luck</div>
+</div>
+<script>
+function T(btn) {
+  var box = btn.nextElementSibling;
+  if (box.classList.contains('visible')) {
+    box.classList.remove('visible');
+    btn.innerHTML = '&#9654; Show Answer';
+  } else {
+    box.classList.add('visible');
+    btn.innerHTML = '&#9660; Hide Answer';
+  }
+}
+</script>
+</body>
+</html>
