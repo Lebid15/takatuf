@@ -1,0 +1,16 @@
+# Python / generation scripts
+generate_exams.py
+*.py
+.venv/
+__pycache__/
+
+# Raw book data
+*.pdf
+*_text.txt
+
+# Planning notes
+plan.md
+
+# OS
+Thumbs.db
+.DS_Store

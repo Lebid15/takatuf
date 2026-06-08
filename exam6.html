@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=920">
+<title>اختبار تدريبي – إنجليزية ثالثة ثانوي – نموذج 06</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 13px;
+  background: #ddd;
+  padding: 20px;
+}
+.page {
+  width: 880px;
+  margin: 0 auto 28px auto;
+  background: #fff;
+  border: 2px solid #000;
+}
+.hdr-top { display: flex; border-bottom: 1px solid #000; font-size: 12px; }
+.hdr-right { width: 170px; padding: 4px 6px; border-left: 1px solid #000;
+  line-height: 1.8; direction: rtl; }
+.hdr-center { flex: 1; text-align: center; padding: 4px; border-left: 1px solid #000; }
+.hdr-center .exam-title { font-weight: bold; font-size: 13.5px; }
+.hdr-center .subject-line { font-size: 14px; font-weight: bold; margin-top: 4px; text-decoration: underline; }
+.hdr-left { width: 130px; padding: 4px 6px; line-height: 1.8; }
+.hdr-page { text-align: center; font-size: 12px; padding: 2px; border-bottom: 1px solid #000; direction: rtl; }
+.hdr-note { text-align: center; font-size: 11.5px; font-style: italic; padding: 2px 6px; border-bottom: 2px solid #000; direction: rtl; }
+.two-col { display: flex; align-items: stretch; }
+.col-L { flex: 1; border-right: 1px solid #000; min-width: 0; }
+.col-R { flex: 1; min-width: 0; }
+.sec-title { font-weight: bold; text-decoration: underline; padding: 5px 7px 3px 7px; font-size: 13px; line-height: 1.4; }
+.task-title { font-weight: bold; text-decoration: underline; padding: 4px 7px 2px 7px; font-size: 12.5px; margin-top: 2px; }
+.marks-right { float: right; text-decoration: none; font-weight: bold; }
+.reading-text { padding: 5px 8px; line-height: 1.6; text-align: justify; font-size: 12.5px; }
+.qblock { padding: 3px 8px 1px 8px; line-height: 1.5; font-size: 12.5px; }
+.opts { padding: 1px 4px 2px 18px; font-size: 12px; line-height: 1.5; }
+.btn-ans { display: inline-block; margin: 3px 0 4px 18px; padding: 2px 10px;
+  background: #1a5276; color: #fff; border: none; cursor: pointer;
+  font-size: 11px; font-family: "Times New Roman", Times, serif; user-select: none; }
+.btn-ans:hover { background: #154360; }
+.ans-box { display: none; background: #eaf4fb; border-left: 3px solid #1a5276;
+  padding: 4px 8px; margin: 0 8px 5px 18px; font-size: 12px; line-height: 1.55; }
+.ans-box.visible { display: block; }
+.sec-sep { border-top: 1px solid #000; margin: 4px 0 0 0; }
+.wline { border-bottom: 1px solid #aaa; height: 21px; margin: 0 8px; }
+.page-footer { text-align: center; font-weight: bold; font-size: 12px;
+  padding: 4px; border-top: 2px solid #000; letter-spacing: 1px; }
+
+.nav-bar {
+  width: 880px;
+  margin: 0 auto 12px auto;
+  background: #1a5276;
+  padding: 7px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  direction: rtl;
+}
+.nav-label {
+  color: #aed6f1;
+  font-size: 12px;
+  margin-left: 8px;
+  white-space: nowrap;
+  font-family: Arial, sans-serif;
+}
+.nav-bar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 3px 9px;
+  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.12);
+  font-family: "Times New Roman", Times, serif;
+}
+.nav-bar a:hover { background: rgba(255,255,255,0.28); }
+.nav-bar a.active {
+  background: #f39c12;
+  color: #000;
+  border-color: #d68910;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <span class="nav-label">التنقل بين النماذج:</span>
+  <a href="exam2.html">Model 02</a> <a href="exam3.html">Model 03</a> <a href="exam4.html">Model 04</a> <a href="exam5.html">Model 05</a> <a href="exam6.html" class="active">Model 06</a> <a href="exam7.html">Model 07</a> <a href="exam8.html">Model 08</a> <a href="exam9.html">Model 09</a> <a href="exam10.html">Model 10</a>
+</div>
+<div class="page">
+    <div class="hdr-top">
+    <div class="hdr-left">المدة: ساعتان<br>الدرجة: 300/ ثلاثة</div>
+    <div class="hdr-center">
+      <div class="exam-title">اختبار تدريبي – مادة اللغة الإنجليزية – السنة الثالثة ثانوي</div>
+      <div style="font-size:12px;">(الفرع العلمي)</div>
+      <div class="subject-line">اللغة الإنجليزية</div>
+    </div>
+    <div class="hdr-right">
+      الاسم: ________________<br>
+      الرقم: ________________<br>
+      المادة: _______________<br>
+      الدرجة: ______________
+    </div>
+  </div>
+  <div class="hdr-page">(الصفحة الأولى)</div>
+  <div class="hdr-note">(انتبه إلى رقم السؤال بحيث يتطابق مع رقم الجواب ولا تلق صفحة السؤال إلى ورقة الإجابة)</div>
+  <div class="two-col">
+    <div class="col-L">
+      <div class="sec-title">I– Read the following text then do the tasks below:</div>
+      <div class="reading-text">&nbsp;&nbsp;&nbsp;<strong>UNICEF</strong><br><br>
+&nbsp;&nbsp;&nbsp;The United Nations Children's Fund (UNICEF), originally known as the United Nations International Children's Emergency Fund, is responsible for providing humanitarian and developmental aid to children worldwide. It has won the Nobel Prize, the first to be awarded to an organisation. Despite being highly active in fundraising, awareness, relief work and research, very few people know the origin of the organisation.
+<br><br>&nbsp;&nbsp;&nbsp;UNICEF is supported entirely by the voluntary contributions of governments, non-governmental organisations, foundations, corporations and private individuals, and receives no funding from the assessed dues of the United Nations. Most of the fundraising is done by UNICEF's 36 national committees and the voluntary support of millions of people around the world.
+<br><br>&nbsp;&nbsp;&nbsp;UNICEF was created in 1946 and began with a definite mission of providing emergency food and healthcare to children in the countries that had been destroyed by World War II. In 1953, its original name was changed to the United Nations Children's Fund to reflect its broader mission, but it retained the original acronym after being officially adopted as a permanent branch of the UN in 1954.
+<br><br>&nbsp;&nbsp;&nbsp;The agency operates in over 190 countries, focusing on the welfare of children in at-risk areas. Since 2006, the organisation has concentrated on key issues including child survival and development, basic education and gender equality, child protection and policy advocacy, and partnerships.
+<br><br>&nbsp;&nbsp;&nbsp;At last, UNICEF is working to create a world in which no child is ever bought or sold. UNICEF believes that every child deserves to grow up in a loving family and supports inter-country adoption when conducted ethically. At the same time, UNICEF works to support families in need so that no one is ever forced by poverty to give up a child.</div>
+      <div class="task-title">Answer the following questions: <span class="marks-right">(18 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q1.</strong> What is UNICEF's original mission when it was created in 1946? <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Its original mission was to provide emergency food and healthcare to children in countries destroyed by World War II.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q2.</strong> Where does UNICEF get its funding from? <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">From voluntary contributions of governments, non-governmental organisations, foundations, corporations, and private individuals.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q3.</strong> What are UNICEF's main areas of focus since 2006? <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Child survival and development, basic education and gender equality, child protection and policy advocacy, and partnerships.</div>
+    </div>
+      <div class="task-title">Find words in the text which mean the following: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q4.</strong> the activity of collecting money for a specific purpose, especially to help people <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>fundraising</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q5.</strong> to defend or support a cause or policy publicly <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>advocate</strong> (advocacy)</div>
+    </div>
+      <div class="task-title">Rewrite the sentences about the text to correct the information: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q6.</strong> UNICEF receives most of its funding from the United Nations budget. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">UNICEF receives <u>no funding</u> from the assessed dues of the United Nations; it depends on voluntary contributions.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q7.</strong> UNICEF was established after World War I to help injured soldiers. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">UNICEF was established <u>after World War II</u> to help <u>children</u> in destroyed countries.</div>
+    </div></div>
+    <div class="col-R">
+      <div class="sec-title">II– Read the following text then do the tasks below:</div>
+      <div class="reading-text">&nbsp;&nbsp;&nbsp;The United Nations was established by the Charter of the United Nations, which was signed on 26 June 1945 by the representatives of 50 countries including Syria. There were 51 founding members in 1945. The United Nations officially came into existence on 24 October 1945 after ratification of the Charter. This day is now celebrated each year around the world as United Nations Day.
+<br><br>&nbsp;&nbsp;&nbsp;The Security Council contains five permanent members: China, France, the Russian Federation, the United Kingdom, and the United States, and ten non-permanent members elected for two-year terms by the General Assembly. The UN also has regional offices in Geneva, Vienna, and Nairobi, and its official languages are Arabic, Chinese, English, French, Russian, and Spanish.
+<br><br>&nbsp;&nbsp;&nbsp;The United Nations was the second multipurpose international organisation established in the 20th century. Its predecessor, the League of Nations, was created by the Treaty of Versailles in 1919 and disbanded in 1946.
+<br><br>&nbsp;&nbsp;&nbsp;At the beginning of the 21st century, the UN has struggled to address humanitarian crises and civil wars, unprecedented refugee flows, and global health emergencies. Despite these challenges, the UN remains the world's most important international organisation, dedicated to maintaining peace and promoting human rights worldwide.</div>
+      <div class="task-title">Choose the correct answer a, b, c or d: <span class="marks-right">(24 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q8.</strong> How many countries signed the UN Charter on 26 June 1945? <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- 45 &nbsp; b- 51 &nbsp; c- 50 &nbsp; d- 24</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- 50</strong> (Syria was among them; Poland signed later making 51 total)</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q9.</strong> How many permanent members does the UN Security Council have? <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- 10 &nbsp; b- 3 &nbsp; c- 7 &nbsp; d- 5</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>d- 5</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q10.</strong> The word 'ratification' in paragraph 1 means: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- rejection &nbsp; b- formal approval/signing &nbsp; c- cancellation &nbsp; d- discussion</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- formal approval/signing</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q11.</strong> The predecessor of the United Nations was: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- the European Union &nbsp; b- NATO &nbsp; c- the League of Nations &nbsp; d- UNICEF</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- the League of Nations</strong></div>
+    </div>
+      <div class="task-title">Complete the following sentences with information from the text: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q12.</strong> According to the text, the UN officially came into existence on … <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">…24 October 1945, after ratification of the Charter.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q13.</strong> According to the text, non-permanent members of the Security Council are elected for …… <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">…two-year terms by the General Assembly.</div>
+    </div></div>
+  </div>
+  <div class="page-footer">الصفحة الأولى &nbsp;←&nbsp; تابع في الصفحة الثانية</div>
+</div>
+<div class="page">
+  <div class="hdr-page">(الصفحة الثانية)</div>
+  <div class="hdr-note">(انتبه إلى رقم السؤال بحيث يتطابق مع رقم الجواب ولا تلق صفحة السؤال إلى ورقة الإجابة)</div>
+  <div class="two-col">
+    <div class="col-L">
+      <div class="sec-title">III– Choose the correct answer a, b, c, or d: <span class="marks-right">(54 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q14.</strong> By this time next year, she ______ her university studies. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- finishes &nbsp; b- will finish &nbsp; c- will have finished &nbsp; d- is finishing</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- will have finished</strong> (Future Perfect)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q15.</strong> Look at those dark clouds! It ______ rain. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- will &nbsp; b- is going to &nbsp; c- would &nbsp; d- shall</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- is going to</strong> (prediction based on visible evidence)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q16.</strong> The prefix 'dis-' in the word 'disagree' means: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- again &nbsp; b- very &nbsp; c- not / opposite of &nbsp; d- before</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- not / opposite of</strong></div>
+    </div>
+    <div class="qblock">
+      <strong>Q17.</strong> The children love ______ presents at Christmas time. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- unwrapping &nbsp; b- disconnecting &nbsp; c- disobeying &nbsp; d- unlocking</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>a- unwrapping</strong> (prefix un- = remove/reverse)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q18.</strong> The UN ______ in 1945 to maintain peace and promote human rights. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- established &nbsp; b- is established &nbsp; c- was established &nbsp; d- establishes</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- was established</strong> (Past Simple Passive)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q19.</strong> We need to ______ our sales figures by 20% this year. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- increase &nbsp; b- decreased &nbsp; c- increasing &nbsp; d- increasement</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>a- increase</strong></div>
+    </div>
+    <div class="qblock">
+      <strong>Q20.</strong> The word stress in 'import' when used as a NOUN falls on the: <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- second syllable &nbsp; b- first syllable &nbsp; c- last syllable &nbsp; d- has no stress</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- first syllable</strong> /ˈɪm.pɔːt/ (noun) vs /ɪmˈpɔːt/ (verb)</div>
+    </div>
+    <div class="qblock">
+      <strong>Q21.</strong> She has ______ her flight tickets and is ready to travel. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- book &nbsp; b- booked &nbsp; c- booking &nbsp; d- to book</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>b- booked</strong></div>
+    </div>
+    <div class="qblock">
+      <strong>Q22.</strong> By the time the delegates arrived, the meeting ______ already. <span class="marks-right">(06 pts)</span>
+      <div class="opts">a- started &nbsp; b- has started &nbsp; c- had started &nbsp; d- starts</div>
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>c- had started</strong> (Past Perfect)</div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">IV– Complete the following sentences / paragraph by filling in each gap with one functional word: <span class="marks-right">(18 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q23.</strong> The United Nations was established _______ maintain peace and security in the world. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>to</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q24.</strong> The Security Council has five permanent members _______ ten non-permanent ones. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>and</strong></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q25.</strong> Syria has been a member of the United Nations _______ 1945. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>since</strong></div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">V– Write suitable questions about the underlined words: <span class="marks-right">(24 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q26.</strong> UNICEF was created <u>in 1946</u> to help children after World War II. <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">When was UNICEF created?</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q27.</strong> <u>Syria</u> signed the UN Charter on 26 June 1945. <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Who/Which country signed the UN Charter on 26 June 1945?</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q28.</strong> The Security Council elects non-permanent members <u>for two-year terms</u>. <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">How long / For how long does the Security Council elect non-permanent members?</div>
+    </div></div>
+    <div class="col-R">
+      <div class="sec-title">VI– Rewrite the following sentences as required in brackets: <span class="marks-right">(32 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q29.</strong> "We will send emergency aid to the affected countries," said the UN spokesperson. &nbsp; [Reported Speech] <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">The UN spokesperson said (that) they would send emergency aid to the affected countries.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q30.</strong> The UN Charter was signed by 50 countries. &nbsp; [Active Voice — Begin: 50 countries…] <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">50 countries signed the UN Charter.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q31.</strong> The resolution was so important that all members voted in favour of it. &nbsp; [too…to] <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">The resolution was too important for any member to vote against.</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q32.</strong> The League of Nations was disbanded in 1946. &nbsp; [Use: It was not until…] <span class="marks-right">(08 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">It was not until 1946 that the League of Nations was disbanded.</div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">VII– Correct the verbs in brackets: <span class="marks-right">(18 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q33.</strong> By the time the peace treaty (sign) _______, thousands of lives had been lost. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>was signed</strong> (Past Simple Passive)</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q34.</strong> The new UN resolution (implement) _______ by all member states by next year. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>will be implemented</strong> (Future Passive)</div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q35.</strong> If the UN had intervened earlier, the war (not/last) _______ so long. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box"><strong>would not have lasted</strong> (Conditional Type 3)</div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">VIII– Complete the following sentences using clauses: <span class="marks-right">(12 marks)</span></div>
+      
+    <div class="qblock">
+      <strong>Q36.</strong> Although UNICEF receives no funding from the UN budget, _________________________. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Sample: <em>…it manages to raise millions of dollars every year through voluntary contributions.</em></div>
+    </div>
+      
+    <div class="qblock">
+      <strong>Q37.</strong> If governments around the world cooperated more effectively, _________________________. <span class="marks-right">(06 pts)</span>
+      
+      <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+      <div class="ans-box">Sample: <em>…they would be able to solve many global problems such as poverty and conflict.</em></div>
+    </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">IX– Translation:</div>
+      <div class="qblock">
+        <strong>Q38.</strong> Translate the following sentence into Arabic: <span class="marks-right">(06 marks)</span><br>
+        <em>"The United Nations was founded with the primary goal of maintaining international peace and security."</em>
+        <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+        <div class="ans-box" style="direction:rtl;text-align:right;font-family:Arial,sans-serif;">تأسست الأمم المتحدة بهدف رئيسي هو الحفاظ على السلام والأمن الدوليين.</div>
+      </div>
+      <div class="qblock">
+        <strong>Q39.</strong> Translate the following sentence into English: <span class="marks-right">(08 marks)</span><br>
+        <span style="font-family:Arial,sans-serif;direction:rtl;display:inline-block;text-align:right;">تعمل منظمة اليونيسف على حماية حقوق الأطفال وتوفير الغذاء والرعاية الصحية لهم في مناطق النزاع.</span>
+        <button class="btn-ans" onclick="T(this)">&#9654; Show Answer</button>
+        <div class="ans-box">UNICEF works to protect children's rights and provide food and healthcare for them in conflict zones.</div>
+      </div>
+      <div class="sec-sep"></div>
+      <div class="sec-title">X– Composition: <span class="marks-right">(50 marks)</span></div>
+      <div class="qblock">
+        <strong>Q40.</strong> Write a composition of <strong>no less than 80 words</strong> on the following topic:<br><br>
+        <em><strong>"Write about the importance of international organisations such as the United Nations in maintaining world peace and protecting human rights."</strong></em>
+        <button class="btn-ans" onclick="T(this)">&#9654; Show Answer (Model Answer)</button>
+        <div class="ans-box">International organisations such as the United Nations play a crucial role in today's world. They bring nations together to work towards common goals, including peace, security, and the protection of human rights. Without such organisations, the world would be a far more dangerous and divided place.<br><br>
+The United Nations has achieved many important goals since its establishment in 1945. Its agencies, such as UNICEF, UNHCR, and WHO, provide humanitarian aid to millions of people in need. The Security Council works to resolve conflicts and prevent wars, while the General Assembly serves as a forum for dialogue and cooperation among nations.<br><br>
+In conclusion, despite its limitations, the United Nations remains an essential pillar of the international order. It represents humanity's best effort to build a world based on dialogue, justice, and mutual respect. Every nation has a responsibility to support and strengthen this vital institution.</div>
+        <div style="margin-top:6px;"><div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div></div>
+      </div></div>
+  </div>
+  <div class="page-footer">END OF PRACTICE TEST &nbsp;|&nbsp; Model 06 &nbsp;|&nbsp; Good Luck</div>
+</div>
+<script>
+function T(btn) {
+  var box = btn.nextElementSibling;
+  if (box.classList.contains('visible')) {
+    box.classList.remove('visible');
+    btn.innerHTML = '&#9654; Show Answer';
+  } else {
+    box.classList.add('visible');
+    btn.innerHTML = '&#9660; Hide Answer';
+  }
+}
+</script>
+</body>
+</html>
