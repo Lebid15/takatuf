@@ -1253,10 +1253,207 @@ function bindEvents() {
 }
 
 /* ============================================================
+   منتقي التاريخ العربي المخصص
+============================================================ */
+const AR_WEEKDAYS = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+
+function initArDatePickers() {
+  document.querySelectorAll('input[type="date"]').forEach(input => {
+    if (input.dataset.arInited) return;
+    input.dataset.arInited = '1';
+
+    const wrap = document.createElement('div');
+    wrap.className = 'ar-date-wrap';
+    input.parentNode.insertBefore(wrap, input);
+
+    const display = document.createElement('input');
+    display.type = 'text';
+    display.readOnly = true;
+    display.className = 'ar-date-display';
+    display.placeholder = 'اختر التاريخ';
+    if (input.required) display.required = true;
+    wrap.appendChild(display);
+
+    input.type = 'hidden';
+    wrap.appendChild(input);
+
+    const popup = document.createElement('div');
+    popup.className = 'ar-date-popup';
+    popup.hidden = true;
+    wrap.appendChild(popup);
+
+    let viewYear, viewMonth, mode = 'days';
+
+    function parseInput() {
+      if (input.value) {
+        const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(input.value);
+        if (m) return { y: +m[1], mo: +m[2], d: +m[3] };
+      }
+      const now = new Date();
+      return { y: now.getFullYear(), mo: now.getMonth() + 1, d: now.getDate() };
+    }
+
+    function syncDisplay() {
+      display.value = input.value ? formatDateAr(input.value) : '';
+    }
+
+    function setValue(y, mo, d) {
+      const iso = `${y}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+      input.value = iso;
+      syncDisplay();
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+
+    function renderDays() {
+      const sel = parseInput();
+      const today = new Date();
+      const ty = today.getFullYear(), tmo = today.getMonth() + 1, td = today.getDate();
+      const rawDow = new Date(viewYear, viewMonth - 1, 1).getDay();
+      const firstDow = (rawDow + 1) % 7;
+      const daysInMonth = new Date(viewYear, viewMonth, 0).getDate();
+      let cells = '';
+      for (let i = 0; i < firstDow; i++) cells += '<button type="button" class="ar-date-cell empty" disabled></button>';
+      for (let d = 1; d <= daysInMonth; d++) {
+        const isSel = input.value && sel.y === viewYear && sel.mo === viewMonth && sel.d === d;
+        const isToday = ty === viewYear && tmo === viewMonth && td === d;
+        const cls = ['ar-date-cell'];
+        if (isSel) cls.push('selected');
+        if (isToday) cls.push('today');
+        cells += `<button type="button" class="${cls.join(' ')}" data-day="${d}">${d}</button>`;
+      }
+      const weekdayHeads = [6, 0, 1, 2, 3, 4, 5]
+        .map(i => `<div class="ar-date-wd">${AR_WEEKDAYS[i].slice(2)}</div>`).join('');
+      popup.innerHTML = `
+        <div class="ar-date-head">
+          <button type="button" class="ar-nav" data-nav="prev">‹</button>
+          <button type="button" class="ar-date-title" data-mode="months">${AR_MONTHS[viewMonth - 1]} ${viewYear}</button>
+          <button type="button" class="ar-nav" data-nav="next">›</button>
+        </div>
+        <div class="ar-date-weekdays">${weekdayHeads}</div>
+        <div class="ar-date-grid">${cells}</div>
+        <div class="ar-date-foot">
+          <button type="button" class="ar-foot-btn" data-action="today">اليوم</button>
+          <button type="button" class="ar-foot-btn" data-action="clear">مسح</button>
+        </div>
+      `;
+    }
+
+    function renderMonths() {
+      const sel = parseInput();
+      const cells = AR_MONTHS.map((name, i) => {
+        const mo = i + 1;
+        const isSel = input.value && sel.y === viewYear && sel.mo === mo;
+        return `<button type="button" class="ar-month-cell ${isSel ? 'selected' : ''}" data-month="${mo}">${name}</button>`;
+      }).join('');
+      popup.innerHTML = `
+        <div class="ar-date-head">
+          <button type="button" class="ar-nav" data-nav="prev-year">‹</button>
+          <button type="button" class="ar-date-title" data-mode="years">${viewYear}</button>
+          <button type="button" class="ar-nav" data-nav="next-year">›</button>
+        </div>
+        <div class="ar-month-grid">${cells}</div>
+      `;
+    }
+
+    function renderYears() {
+      const sel = parseInput();
+      const start = viewYear - (viewYear % 12);
+      let cells = '';
+      for (let i = 0; i < 12; i++) {
+        const y = start + i;
+        const isSel = input.value && sel.y === y;
+        cells += `<button type="button" class="ar-year-cell ${isSel ? 'selected' : ''}" data-year="${y}">${y}</button>`;
+      }
+      popup.innerHTML = `
+        <div class="ar-date-head">
+          <button type="button" class="ar-nav" data-nav="prev-decade">‹</button>
+          <span class="ar-date-title">${start} - ${start + 11}</span>
+          <button type="button" class="ar-nav" data-nav="next-decade">›</button>
+        </div>
+        <div class="ar-year-grid">${cells}</div>
+      `;
+    }
+
+    function render() {
+      if (mode === 'months') renderMonths();
+      else if (mode === 'years') renderYears();
+      else renderDays();
+    }
+
+    function open() {
+      const sel = parseInput();
+      viewYear = sel.y;
+      viewMonth = sel.mo;
+      mode = 'days';
+      render();
+      popup.hidden = false;
+    }
+    function close() { popup.hidden = true; }
+
+    display.addEventListener('click', () => { popup.hidden ? open() : close(); });
+
+    popup.addEventListener('click', e => {
+      e.stopPropagation();
+      const t = e.target;
+      const nav = t.closest('[data-nav]');
+      if (nav) {
+        const n = nav.dataset.nav;
+        if (n === 'prev') { viewMonth--; if (viewMonth < 1) { viewMonth = 12; viewYear--; } }
+        else if (n === 'next') { viewMonth++; if (viewMonth > 12) { viewMonth = 1; viewYear++; } }
+        else if (n === 'prev-year') viewYear--;
+        else if (n === 'next-year') viewYear++;
+        else if (n === 'prev-decade') viewYear -= 12;
+        else if (n === 'next-decade') viewYear += 12;
+        render();
+        return;
+      }
+      const modeBtn = t.closest('[data-mode]');
+      if (modeBtn) { mode = modeBtn.dataset.mode; render(); return; }
+      const dayBtn = t.closest('[data-day]');
+      if (dayBtn) { setValue(viewYear, viewMonth, +dayBtn.dataset.day); close(); return; }
+      const monBtn = t.closest('[data-month]');
+      if (monBtn) { viewMonth = +monBtn.dataset.month; mode = 'days'; render(); return; }
+      const yrBtn = t.closest('[data-year]');
+      if (yrBtn) { viewYear = +yrBtn.dataset.year; mode = 'months'; render(); return; }
+      const act = t.closest('[data-action]');
+      if (act) {
+        if (act.dataset.action === 'today') {
+          const now = new Date();
+          setValue(now.getFullYear(), now.getMonth() + 1, now.getDate());
+          close();
+        } else if (act.dataset.action === 'clear') {
+          input.value = '';
+          syncDisplay();
+          input.dispatchEvent(new Event('change', { bubbles: true }));
+          close();
+        }
+      }
+    });
+
+    document.addEventListener('click', e => {
+      if (!wrap.contains(e.target)) close();
+    });
+
+    const form = input.closest('form');
+    if (form) form.addEventListener('reset', () => setTimeout(syncDisplay, 0));
+
+    const proto = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value');
+    Object.defineProperty(input, 'value', {
+      configurable: true,
+      get: proto.get,
+      set(v) { proto.set.call(this, v); syncDisplay(); }
+    });
+
+    syncDisplay();
+  });
+}
+
+/* ============================================================
    التشغيل
 ============================================================ */
 function init() {
   bindEvents();
+  initArDatePickers();
   const acc = getActiveAccount();
   if (acc) enterApp();
   else {
