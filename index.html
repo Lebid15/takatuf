@@ -136,10 +136,10 @@
       <nav>
         <button class="nav-btn active" data-view="dashboard">📊 لوحة التحكم</button>
         <button class="nav-btn" data-view="customers">👥 الزبائن</button>
-        <button class="nav-btn" data-view="inventory">📦 مستودعي</button>
-        <button class="nav-btn" data-view="sales">🧾 الحركات</button>
+        <button class="nav-btn" data-view="sales">🧾 بيع جديد</button>
         <button class="nav-btn" data-view="payments">💵 الدفعات</button>
         <button class="nav-btn" data-view="reports">📈 كشف الحساب</button>
+        <button class="nav-btn" data-view="log">📋 السجل</button>
         <button class="nav-btn" data-view="settings">⚙️ الإعدادات</button>
       </nav>
     </aside>
@@ -150,17 +150,22 @@
         <h3 class="view-title">لوحة التحكم</h3>
         <div class="stats-grid">
           <div class="stat-card"><div class="stat-label">عدد الزبائن</div><div class="stat-value" id="stat-customers">0</div></div>
-          <div class="stat-card"><div class="stat-label">عدد المنتجات</div><div class="stat-value" id="stat-products">0</div></div>
-          <div class="stat-card"><div class="stat-label">إجمالي المبيعات</div><div class="stat-value" id="stat-sales">0</div></div>
-          <div class="stat-card"><div class="stat-label">إجمالي الدفعات</div><div class="stat-value" id="stat-payments">0</div></div>
-          <div class="stat-card stat-warn"><div class="stat-label">الرصيد المتبقي على الزبائن</div><div class="stat-value" id="stat-balance">0</div></div>
-          <div class="stat-card stat-danger"><div class="stat-label">منتجات منخفضة المخزون</div><div class="stat-value" id="stat-low-stock">0</div></div>
+          <div class="stat-card"><div class="stat-label">عدد عمليات البيع</div><div class="stat-value" id="stat-sales-count">0</div></div>
+          <div class="stat-card"><div class="stat-label">عدد الدفعات</div><div class="stat-value" id="stat-payments-count">0</div></div>
+        </div>
+
+        <h4 class="sub-title">الإجماليات حسب العملة</h4>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>العملة</th><th>إجمالي المبيعات</th><th>إجمالي الدفعات</th><th>المتبقي على الزبائن</th></tr></thead>
+            <tbody id="totals-by-currency-body"></tbody>
+          </table>
         </div>
 
         <h4 class="sub-title">آخر الحركات</h4>
         <div class="table-wrap">
           <table class="data-table">
-            <thead><tr><th>التاريخ</th><th>الزبون</th><th>المنتج</th><th>الكمية</th><th>الإجمالي</th></tr></thead>
+            <thead><tr><th>التاريخ</th><th>الزبون</th><th>المنتج</th><th>الكمية</th><th>المبلغ</th><th>العملة</th></tr></thead>
             <tbody id="recent-sales-body"></tbody>
           </table>
         </div>
@@ -191,38 +196,11 @@
         </div>
       </section>
 
-      <!-- ===== المستودع ===== -->
-      <section id="view-inventory" class="view">
-        <div class="view-head">
-          <h3 class="view-title">مستودعي</h3>
-          <button class="btn btn-secondary no-print" data-print="view-inventory">🖨️ طباعة</button>
-        </div>
-
-        <form id="product-form" class="card-form no-print">
-          <div class="grid-2">
-            <div><label>اسم المنتج</label><input type="text" id="product-name" required /></div>
-            <div><label>النوع</label><input type="text" id="product-type" placeholder="مبيد، سماد، بذور..." /></div>
-            <div><label>سعر البيع</label><input type="number" id="product-price" min="0" step="0.01" required /></div>
-            <div><label>الكمية المضافة</label><input type="number" id="product-qty" min="0" step="1" required /></div>
-            <div><label>حد التنبيه</label><input type="number" id="product-alert" min="0" step="1" value="5" /></div>
-            <div><label>الوحدة</label><input type="text" id="product-unit" placeholder="كغ، لتر، علبة..." /></div>
-          </div>
-          <button type="submit" class="btn btn-primary">إضافة المنتج</button>
-        </form>
-
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead><tr><th>#</th><th>الاسم</th><th>النوع</th><th>الوحدة</th><th>السعر</th><th>الكمية المضافة</th><th>المباع</th><th>المتوفر</th><th>الحالة</th><th class="no-print">إجراءات</th></tr></thead>
-            <tbody id="inventory-body"></tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- ===== الحركات (المبيعات) ===== -->
+      <!-- ===== بيع جديد ===== -->
       <section id="view-sales" class="view">
         <div class="view-head">
-          <h3 class="view-title">الحركات</h3>
-          <button class="btn btn-secondary no-print" data-print="view-sales">🖨️ طباعة</button>
+          <h3 class="view-title">بيع جديد</h3>
+          <button class="btn btn-secondary no-print" data-print="view-sales">🖨️ طباعة السجل</button>
         </div>
 
         <form id="sale-form" class="card-form no-print">
@@ -231,24 +209,27 @@
               <label>الزبون</label>
               <select id="sale-customer" required></select>
             </div>
+            <div><label>اسم المنتج</label><input type="text" id="sale-product-name" required placeholder="مثال: قمح، شعير، أسمدة..." /></div>
+            <div><label>الكمية</label><input type="text" id="sale-qty" required placeholder="مثال: 20 طن أو 22 كيلو" /></div>
+            <div><label>السعر الإجمالي</label><input type="number" id="sale-amount" min="0" step="0.01" required /></div>
             <div>
-              <label>المنتج</label>
-              <select id="sale-product" required></select>
+              <label>العملة</label>
+              <select id="sale-currency" required>
+                <option value="TRY">ليرة تركية ₺</option>
+                <option value="USD">دولار $</option>
+                <option value="SYP">ليرة سورية ل.س</option>
+                <option value="EUR">يورو €</option>
+              </select>
             </div>
-            <div><label>اسم المنتج</label><input type="text" id="sale-product-name" readonly /></div>
-            <div><label>النوع</label><input type="text" id="sale-product-type" readonly /></div>
-            <div><label>سعر الوحدة</label><input type="number" id="sale-price" min="0" step="0.01" required /></div>
-            <div><label>الكمية</label><input type="number" id="sale-qty" min="1" step="1" required /></div>
-            <div><label>الإجمالي</label><input type="text" id="sale-total" readonly /></div>
             <div><label>التاريخ</label><input type="date" id="sale-date" required /></div>
             <div class="full"><label>ملاحظات</label><input type="text" id="sale-notes" /></div>
           </div>
-          <button type="submit" class="btn btn-primary">إضافة الحركة</button>
+          <button type="submit" class="btn btn-primary">إضافة العملية</button>
         </form>
 
         <div class="table-wrap">
           <table class="data-table">
-            <thead><tr><th>#</th><th>التاريخ</th><th>الزبون</th><th>المنتج</th><th>الكمية</th><th>السعر</th><th>الإجمالي</th><th class="no-print">إجراءات</th></tr></thead>
+            <thead><tr><th>#</th><th>التاريخ</th><th>الزبون</th><th>المنتج</th><th>الكمية</th><th>المبلغ</th><th>العملة</th><th>ملاحظات</th><th class="no-print">إجراءات</th></tr></thead>
             <tbody id="sales-body"></tbody>
           </table>
         </div>
@@ -268,15 +249,24 @@
               <select id="payment-customer" required></select>
             </div>
             <div><label>المبلغ</label><input type="number" id="payment-amount" min="0.01" step="0.01" required /></div>
+            <div>
+              <label>العملة</label>
+              <select id="payment-currency" required>
+                <option value="TRY">ليرة تركية ₺</option>
+                <option value="USD">دولار $</option>
+                <option value="SYP">ليرة سورية ل.س</option>
+                <option value="EUR">يورو €</option>
+              </select>
+            </div>
             <div><label>التاريخ</label><input type="date" id="payment-date" required /></div>
-            <div><label>ملاحظات</label><input type="text" id="payment-notes" placeholder="دفعة جزئية / كاملة" /></div>
+            <div class="full"><label>ملاحظات</label><input type="text" id="payment-notes" placeholder="دفعة جزئية / كاملة" /></div>
           </div>
           <button type="submit" class="btn btn-primary">إضافة الدفعة</button>
         </form>
 
         <div class="table-wrap">
           <table class="data-table">
-            <thead><tr><th>#</th><th>التاريخ</th><th>الزبون</th><th>المبلغ</th><th>ملاحظات</th><th class="no-print">إجراءات</th></tr></thead>
+            <thead><tr><th>#</th><th>التاريخ</th><th>الزبون</th><th>المبلغ</th><th>العملة</th><th>ملاحظات</th><th class="no-print">إجراءات</th></tr></thead>
             <tbody id="payments-body"></tbody>
           </table>
         </div>
@@ -310,6 +300,44 @@
             </label>
             <button id="delete-data-btn" class="btn btn-danger">🗑️ حذف بيانات الحساب</button>
           </div>
+        </div>
+      </section>
+
+      <!-- ===== السجل ===== -->
+      <section id="view-log" class="view">
+        <div class="view-head">
+          <h3 class="view-title">السجل الكامل</h3>
+          <button class="btn btn-secondary no-print" data-print="view-log">🖨️ طباعة السجل</button>
+        </div>
+
+        <div class="card-form no-print">
+          <div class="grid-2">
+            <div><label>من تاريخ</label><input type="date" id="log-from" /></div>
+            <div><label>إلى تاريخ</label><input type="date" id="log-to" /></div>
+            <div>
+              <label>الزبون</label>
+              <select id="log-customer"></select>
+            </div>
+            <div>
+              <label>النوع</label>
+              <select id="log-type">
+                <option value="">الكل</option>
+                <option value="sale">مبيعات فقط</option>
+                <option value="payment">دفعات فقط</option>
+              </select>
+            </div>
+          </div>
+          <div class="actions-row">
+            <button id="log-filter-btn" type="button" class="btn btn-primary">تطبيق التصفية</button>
+            <button id="log-clear-btn" type="button" class="btn btn-secondary">مسح التصفية</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>#</th><th>التاريخ</th><th>النوع</th><th>الزبون</th><th>التفاصيل</th><th>المبلغ</th><th>العملة</th></tr></thead>
+            <tbody id="log-body"></tbody>
+          </table>
         </div>
       </section>
 
