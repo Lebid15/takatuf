@@ -196,6 +196,7 @@ function loginAccount(email, password) {
 
 function logoutAccount() {
   setActiveAccountId(null);
+  sessionStorage.removeItem('activeView');
   showScreen('auth-screen');
   switchAuthTab('login');
   $('#login-form').reset();
@@ -312,7 +313,9 @@ function formatBalancesShort(balances) {
 function enterApp() {
   showScreen('app-screen');
   refreshHeader();
-  navigateTo('dashboard');
+  const saved = sessionStorage.getItem('activeView');
+  const valid = ['dashboard','customers','sales','payments','reports','log','settings'];
+  navigateTo(valid.includes(saved) ? saved : 'dashboard');
 }
 
 function refreshHeader() {
@@ -331,6 +334,7 @@ function refreshHeader() {
 }
 
 function navigateTo(view) {
+  sessionStorage.setItem('activeView', view);
   $all('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.view === view));
   $all('.view').forEach(v => v.classList.toggle('active', v.id === 'view-' + view));
   $('#sidebar').classList.remove('open');
