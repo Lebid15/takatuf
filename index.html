@@ -221,6 +221,17 @@
                 <option value="EUR">يورو €</option>
               </select>
             </div>
+            <div>
+              <label>نوع الدفع</label>
+              <select id="sale-type" required>
+                <option value="debt" selected>دين</option>
+                <option value="cash">نقدي</option>
+              </select>
+            </div>
+            <div id="sale-due-date-wrap">
+              <label>تاريخ التسديد</label>
+              <input type="date" id="sale-due-date" />
+            </div>
             <div><label>التاريخ</label><input type="date" id="sale-date" required /></div>
             <div class="full"><label>ملاحظات</label><input type="text" id="sale-notes" /></div>
           </div>
@@ -229,7 +240,7 @@
 
         <div class="table-wrap">
           <table class="data-table">
-            <thead><tr><th>#</th><th>التاريخ</th><th>الزبون</th><th>المنتج</th><th>الكمية</th><th>المبلغ</th><th>العملة</th><th>ملاحظات</th><th class="no-print">إجراءات</th></tr></thead>
+            <thead><tr><th>#</th><th>التاريخ</th><th>الزبون</th><th>المنتج</th><th>الكمية</th><th>المبلغ</th><th>العملة</th><th>النوع</th><th>تاريخ التسديد</th><th>ملاحظات</th><th class="no-print">إجراءات</th></tr></thead>
             <tbody id="sales-body"></tbody>
           </table>
         </div>

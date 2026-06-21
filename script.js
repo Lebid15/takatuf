@@ -247,7 +247,8 @@ function calculateCustomerTotals(customerId) {
   const credit = emptyTotals();
   if (!acc) return { debit, credit, balance: emptyTotals() };
 
-  acc.sales.filter(s => s.customerId === customerId).forEach(s => {
+  // فقط عمليات الدين تدخل في رصيد الزبون؛ النقدي مسدد فوراً
+  acc.sales.filter(s => s.customerId === customerId && (s.paymentType || 'debt') === 'debt').forEach(s => {
     const c = s.currency || 'SYP';
     debit[c] = (debit[c] || 0) + Number(s.amount || 0);
   });
@@ -263,20 +264,23 @@ function calculateCustomerTotals(customerId) {
 
 function calculateAllTotals() {
   const acc = getActiveAccount();
-  const sales = emptyTotals();
+  const sales = emptyTotals();      // كل المبيعات (نقدي + دين)
+  const debtSales = emptyTotals();  // فقط الدين
   const payments = emptyTotals();
-  if (!acc) return { sales, payments, balance: emptyTotals() };
+  if (!acc) return { sales, debtSales, payments, balance: emptyTotals() };
   acc.sales.forEach(s => {
     const c = s.currency || 'SYP';
-    sales[c] = (sales[c] || 0) + Number(s.amount || 0);
+    const amt = Number(s.amount || 0);
+    sales[c] = (sales[c] || 0) + amt;
+    if ((s.paymentType || 'debt') === 'debt') debtSales[c] = (debtSales[c] || 0) + amt;
   });
   acc.payments.forEach(p => {
     const c = p.currency || 'SYP';
     payments[c] = (payments[c] || 0) + Number(p.amount || 0);
   });
   const balance = emptyTotals();
-  CURRENCY_ORDER.forEach(c => { balance[c] = sales[c] - payments[c]; });
-  return { sales, payments, balance };
+  CURRENCY_ORDER.forEach(c => { balance[c] = debtSales[c] - payments[c]; });
+  return { sales, debtSales, payments, balance };
 }
 
 function customerActiveCurrencies(customerId) {
@@ -408,12 +412,17 @@ function renderSales() {
 
   const tbody = $('#sales-body');
   if (!acc.sales.length) {
-    tbody.innerHTML = `<tr><td colspan="9" class="empty">لا توجد عمليات بيع بعد.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="11" class="empty">لا توجد عمليات بيع بعد.</td></tr>`;
     return;
   }
   const sorted = [...acc.sales].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   tbody.innerHTML = sorted.map((s, i) => {
     const cust = acc.customers.find(c => c.id === s.customerId);
+    const type = s.paymentType || 'debt';
+    const typeBadge = type === 'cash'
+      ? '<span class="badge badge-ok">نقدي</span>'
+      : '<span class="badge badge-warn">دين</span>';
+    const dueCell = type === 'debt' ? escapeHtml(s.dueDate || '—') : '—';
     return `<tr>
       <td>${i + 1}</td>
       <td>${escapeHtml(s.date)}</td>
@@ -422,6 +431,8 @@ function renderSales() {
       <td>${escapeHtml(s.qty)}</td>
       <td><strong>${fmtMoney(s.amount)}</strong></td>
       <td>${escapeHtml(currencyName(s.currency))}</td>
+      <td>${typeBadge}</td>
+      <td>${dueCell}</td>
       <td>${escapeHtml(s.notes || '—')}</td>
       <td class="no-print">
         <button class="btn btn-secondary btn-sm" data-print-sale="${s.id}">🖨️ إيصال</button>
@@ -559,11 +570,16 @@ function buildLogEntries() {
   const acc = getActiveAccount();
   if (!acc) return [];
   const entries = [];
-  acc.sales.forEach(s => entries.push({
-    id: s.id, kind: 'sale', date: s.date, customerId: s.customerId,
-    detail: `${s.productName} — ${s.qty}` + (s.notes ? ` (${s.notes})` : ''),
-    amount: s.amount, currency: s.currency
-  }));
+  acc.sales.forEach(s => {
+    const type = s.paymentType || 'debt';
+    const typeLabel = type === 'cash' ? 'نقدي' : 'دين';
+    const dueInfo = (type === 'debt' && s.dueDate) ? ` - تسديد: ${s.dueDate}` : '';
+    entries.push({
+      id: s.id, kind: 'sale', date: s.date, customerId: s.customerId,
+      detail: `${s.productName} — ${s.qty} [${typeLabel}${dueInfo}]` + (s.notes ? ` (${s.notes})` : ''),
+      amount: s.amount, currency: s.currency
+    });
+  });
   acc.payments.forEach(p => entries.push({
     id: p.id, kind: 'payment', date: p.date, customerId: p.customerId,
     detail: 'دفعة' + (p.notes ? ` — ${p.notes}` : ''),
@@ -772,6 +788,7 @@ function printSection(viewId) {
       title = 'سجل المبيعات';
       const rows = acc.sales.map((s, i) => {
         const cust = acc.customers.find(c => c.id === s.customerId);
+        const type = s.paymentType || 'debt';
         return `<tr>
           <td>${i + 1}</td>
           <td>${escapeHtml(s.date)}</td>
@@ -780,12 +797,14 @@ function printSection(viewId) {
           <td>${escapeHtml(s.qty)}</td>
           <td>${fmtMoney(s.amount)}</td>
           <td>${escapeHtml(currencyName(s.currency))}</td>
+          <td>${type === 'cash' ? 'نقدي' : 'دين'}</td>
+          <td>${type === 'debt' ? escapeHtml(s.dueDate || '—') : '—'}</td>
           <td>${escapeHtml(s.notes || '—')}</td>
         </tr>`;
       }).join('');
       body = `<table>
-        <thead><tr><th>#</th><th>التاريخ</th><th>الزبون</th><th>المنتج</th><th>الكمية</th><th>المبلغ</th><th>العملة</th><th>ملاحظات</th></tr></thead>
-        <tbody>${rows || `<tr><td colspan="8">لا توجد مبيعات.</td></tr>`}</tbody>
+        <thead><tr><th>#</th><th>التاريخ</th><th>الزبون</th><th>المنتج</th><th>الكمية</th><th>المبلغ</th><th>العملة</th><th>النوع</th><th>تاريخ التسديد</th><th>ملاحظات</th></tr></thead>
+        <tbody>${rows || `<tr><td colspan="10">لا توجد مبيعات.</td></tr>`}</tbody>
       </table>`;
       break;
     }
@@ -840,6 +859,11 @@ function printSaleReceipt(saleId) {
   const s = acc.sales.find(x => x.id === saleId);
   if (!s) return;
   const cust = acc.customers.find(c => c.id === s.customerId);
+  const type = s.paymentType || 'debt';
+  const typeLabel = type === 'cash' ? 'نقدي (مسدد)' : 'دين';
+  const dueRow = type === 'debt'
+    ? `<tr><th>تاريخ التسديد</th><td>${escapeHtml(s.dueDate || 'غير محدد')}</td></tr>`
+    : '';
   const body = `
     <table>
       <tbody>
@@ -848,6 +872,8 @@ function printSaleReceipt(saleId) {
         <tr><th>المنتج</th><td>${escapeHtml(s.productName)}</td></tr>
         <tr><th>الكمية</th><td>${escapeHtml(s.qty)}</td></tr>
         <tr><th>السعر الإجمالي</th><td><strong>${fmtAmount(s.amount, s.currency)}</strong></td></tr>
+        <tr><th>نوع الدفع</th><td>${typeLabel}</td></tr>
+        ${dueRow}
         <tr><th>ملاحظات</th><td>${escapeHtml(s.notes || '—')}</td></tr>
       </tbody>
     </table>
@@ -1014,6 +1040,12 @@ function bindEvents() {
   });
 
   /* بيع جديد */
+  $('#sale-type').addEventListener('change', () => {
+    const isDebt = $('#sale-type').value === 'debt';
+    $('#sale-due-date-wrap').style.display = isDebt ? '' : 'none';
+    if (!isDebt) $('#sale-due-date').value = '';
+  });
+
   $('#sale-form').addEventListener('submit', e => {
     e.preventDefault();
     const customerId = $('#sale-customer').value;
@@ -1031,12 +1063,16 @@ function bindEvents() {
       a.sales.push({
         id: uid('sale'),
         customerId, productName, qty, amount, currency,
+        paymentType: $('#sale-type').value || 'debt',
+        dueDate: ($('#sale-type').value === 'debt') ? ($('#sale-due-date').value || '') : '',
         date: $('#sale-date').value || todayStr(),
         notes: $('#sale-notes').value.trim()
       });
     });
     e.target.reset();
     $('#sale-date').value = todayStr();
+    $('#sale-type').value = 'debt';
+    $('#sale-due-date-wrap').style.display = '';
     showToast('تم حفظ العملية.', 'success');
     renderSales();
   });
