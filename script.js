@@ -49,6 +49,16 @@ function currencyName(code) {
   return (CURRENCIES[code] || CURRENCIES.SYP).name;
 }
 
+const AR_MONTHS = ['كانون الثاني', 'شباط', 'آذار', 'نيسان', 'أيار', 'حزيران', 'تموز', 'آب', 'أيلول', 'تشرين الأول', 'تشرين الثاني', 'كانون الأول'];
+function formatDateAr(iso) {
+  if (!iso) return '';
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso));
+  if (!m) return iso;
+  const y = m[1], mo = parseInt(m[2], 10), d = parseInt(m[3], 10);
+  if (mo < 1 || mo > 12) return iso;
+  return `${d} ${AR_MONTHS[mo - 1]} ${y}`;
+}
+
 function $(sel, root) { return (root || document).querySelector(sel); }
 function $all(sel, root) { return Array.from((root || document).querySelectorAll(sel)); }
 
@@ -363,7 +373,7 @@ function renderDashboard() {
     ? recent.map(s => {
         const cust = acc.customers.find(c => c.id === s.customerId);
         return `<tr>
-          <td>${escapeHtml(s.date)}</td>
+          <td>${escapeHtml(formatDateAr(s.date))}</td>
           <td>${escapeHtml(cust ? cust.name : '—')}</td>
           <td>${escapeHtml(s.productName)}</td>
           <td>${escapeHtml(s.qty)}</td>
@@ -422,10 +432,10 @@ function renderSales() {
     const typeBadge = type === 'cash'
       ? '<span class="badge badge-ok">نقدي</span>'
       : '<span class="badge badge-warn">دين</span>';
-    const dueCell = type === 'debt' ? escapeHtml(s.dueDate || '—') : '—';
+    const dueCell = type === 'debt' ? escapeHtml(formatDateAr(s.dueDate) || '—') : '—';
     return `<tr>
       <td>${i + 1}</td>
-      <td>${escapeHtml(s.date)}</td>
+      <td>${escapeHtml(formatDateAr(s.date))}</td>
       <td>${escapeHtml(cust ? cust.name : '—')}</td>
       <td>${escapeHtml(s.productName)}</td>
       <td>${escapeHtml(s.qty)}</td>
@@ -461,7 +471,7 @@ function renderPayments() {
     const cust = acc.customers.find(c => c.id === p.customerId);
     return `<tr>
       <td>${i + 1}</td>
-      <td>${escapeHtml(p.date)}</td>
+      <td>${escapeHtml(formatDateAr(p.date))}</td>
       <td>${escapeHtml(cust ? cust.name : '—')}</td>
       <td><strong>${fmtMoney(p.amount)}</strong></td>
       <td>${escapeHtml(currencyName(p.currency))}</td>
@@ -531,7 +541,7 @@ function renderReportContent(customerId) {
       <thead><tr><th>التاريخ</th><th>المنتج</th><th>الكمية</th><th>المبلغ</th><th>العملة</th><th>ملاحظات</th></tr></thead>
       <tbody>
       ${sales.map(s => `<tr>
-        <td>${escapeHtml(s.date)}</td>
+        <td>${escapeHtml(formatDateAr(s.date))}</td>
         <td>${escapeHtml(s.productName)}</td>
         <td>${escapeHtml(s.qty)}</td>
         <td>${fmtMoney(s.amount)}</td>
@@ -550,7 +560,7 @@ function renderReportContent(customerId) {
       <thead><tr><th>التاريخ</th><th>المبلغ</th><th>العملة</th><th>ملاحظات</th></tr></thead>
       <tbody>
       ${payments.map(p => `<tr>
-        <td>${escapeHtml(p.date)}</td>
+        <td>${escapeHtml(formatDateAr(p.date))}</td>
         <td>${fmtMoney(p.amount)}</td>
         <td>${escapeHtml(currencyName(p.currency))}</td>
         <td>${escapeHtml(p.notes || '—')}</td>
@@ -573,7 +583,7 @@ function buildLogEntries() {
   acc.sales.forEach(s => {
     const type = s.paymentType || 'debt';
     const typeLabel = type === 'cash' ? 'نقدي' : 'دين';
-    const dueInfo = (type === 'debt' && s.dueDate) ? ` - تسديد: ${s.dueDate}` : '';
+    const dueInfo = (type === 'debt' && s.dueDate) ? ` - تسديد: ${formatDateAr(s.dueDate)}` : '';
     entries.push({
       id: s.id, kind: 'sale', date: s.date, customerId: s.customerId,
       detail: `${s.productName} — ${s.qty} [${typeLabel}${dueInfo}]` + (s.notes ? ` (${s.notes})` : ''),
@@ -615,7 +625,7 @@ function renderLog() {
       : '<span class="badge badge-ok">دفعة</span>';
     return `<tr>
       <td>${i + 1}</td>
-      <td>${escapeHtml(e.date)}</td>
+      <td>${escapeHtml(formatDateAr(e.date))}</td>
       <td>${typeBadge}</td>
       <td>${escapeHtml(cust ? cust.name : '—')}</td>
       <td>${escapeHtml(e.detail)}</td>
@@ -791,14 +801,14 @@ function printSection(viewId) {
         const type = s.paymentType || 'debt';
         return `<tr>
           <td>${i + 1}</td>
-          <td>${escapeHtml(s.date)}</td>
+          <td>${escapeHtml(formatDateAr(s.date))}</td>
           <td>${escapeHtml(cust ? cust.name : '—')}</td>
           <td>${escapeHtml(s.productName)}</td>
           <td>${escapeHtml(s.qty)}</td>
           <td>${fmtMoney(s.amount)}</td>
           <td>${escapeHtml(currencyName(s.currency))}</td>
           <td>${type === 'cash' ? 'نقدي' : 'دين'}</td>
-          <td>${type === 'debt' ? escapeHtml(s.dueDate || '—') : '—'}</td>
+          <td>${type === 'debt' ? escapeHtml(formatDateAr(s.dueDate) || '—') : '—'}</td>
           <td>${escapeHtml(s.notes || '—')}</td>
         </tr>`;
       }).join('');
@@ -814,7 +824,7 @@ function printSection(viewId) {
         const cust = acc.customers.find(c => c.id === p.customerId);
         return `<tr>
           <td>${i + 1}</td>
-          <td>${escapeHtml(p.date)}</td>
+          <td>${escapeHtml(formatDateAr(p.date))}</td>
           <td>${escapeHtml(cust ? cust.name : '—')}</td>
           <td>${fmtMoney(p.amount)}</td>
           <td>${escapeHtml(currencyName(p.currency))}</td>
@@ -834,7 +844,7 @@ function printSection(viewId) {
         const cust = acc.customers.find(c => c.id === e.customerId);
         return `<tr>
           <td>${i + 1}</td>
-          <td>${escapeHtml(e.date)}</td>
+          <td>${escapeHtml(formatDateAr(e.date))}</td>
           <td>${e.kind === 'sale' ? 'بيع' : 'دفعة'}</td>
           <td>${escapeHtml(cust ? cust.name : '—')}</td>
           <td>${escapeHtml(e.detail)}</td>
@@ -862,12 +872,12 @@ function printSaleReceipt(saleId) {
   const type = s.paymentType || 'debt';
   const typeLabel = type === 'cash' ? 'نقدي (مسدد)' : 'دين';
   const dueRow = type === 'debt'
-    ? `<tr><th>تاريخ التسديد</th><td>${escapeHtml(s.dueDate || 'غير محدد')}</td></tr>`
+    ? `<tr><th>تاريخ التسديد</th><td>${escapeHtml(formatDateAr(s.dueDate) || 'غير محدد')}</td></tr>`
     : '';
   const body = `
     <table>
       <tbody>
-        <tr><th style="width:35%">التاريخ</th><td>${escapeHtml(s.date)}</td></tr>
+        <tr><th style="width:35%">التاريخ</th><td>${escapeHtml(formatDateAr(s.date))}</td></tr>
         <tr><th>الزبون</th><td>${escapeHtml(cust ? cust.name : '—')}${cust && cust.phone ? ' — ' + escapeHtml(cust.phone) : ''}</td></tr>
         <tr><th>المنتج</th><td>${escapeHtml(s.productName)}</td></tr>
         <tr><th>الكمية</th><td>${escapeHtml(s.qty)}</td></tr>
@@ -891,7 +901,7 @@ function printPaymentReceipt(paymentId) {
   const body = `
     <table>
       <tbody>
-        <tr><th style="width:35%">التاريخ</th><td>${escapeHtml(p.date)}</td></tr>
+        <tr><th style="width:35%">التاريخ</th><td>${escapeHtml(formatDateAr(p.date))}</td></tr>
         <tr><th>الزبون</th><td>${escapeHtml(cust ? cust.name : '—')}${cust && cust.phone ? ' — ' + escapeHtml(cust.phone) : ''}</td></tr>
         <tr><th>المبلغ المستلم</th><td><strong>${fmtAmount(p.amount, p.currency)}</strong></td></tr>
         <tr><th>ملاحظات</th><td>${escapeHtml(p.notes || '—')}</td></tr>
@@ -936,7 +946,7 @@ function printCustomerStatement(customerId) {
     <table>
       <thead><tr><th>التاريخ</th><th>المنتج</th><th>الكمية</th><th>المبلغ</th><th>العملة</th><th>ملاحظات</th></tr></thead>
       <tbody>${sales.map(s => `<tr>
-        <td>${escapeHtml(s.date)}</td>
+        <td>${escapeHtml(formatDateAr(s.date))}</td>
         <td>${escapeHtml(s.productName)}</td>
         <td>${escapeHtml(s.qty)}</td>
         <td>${fmtMoney(s.amount)}</td>
@@ -948,7 +958,7 @@ function printCustomerStatement(customerId) {
     <table>
       <thead><tr><th>التاريخ</th><th>المبلغ</th><th>العملة</th><th>ملاحظات</th></tr></thead>
       <tbody>${payments.map(p => `<tr>
-        <td>${escapeHtml(p.date)}</td>
+        <td>${escapeHtml(formatDateAr(p.date))}</td>
         <td>${fmtMoney(p.amount)}</td>
         <td>${escapeHtml(currencyName(p.currency))}</td>
         <td>${escapeHtml(p.notes || '—')}</td>
